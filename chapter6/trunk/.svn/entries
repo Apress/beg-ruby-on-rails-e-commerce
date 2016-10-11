@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   incomplete="true"
+   url="http://opensvn.csie.org/rails_file_column/plugins/file_column/trunk"
+   kind="dir"
+   uuid="6a5db2c9-b104-0410-84e5-917aad89f9d9"
+   repos="http://opensvn.csie.org/rails_file_column"
+   revision="64"/>
+</wc-entries>

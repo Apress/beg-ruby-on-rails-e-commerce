@@ -1,0 +1,10 @@
+|open|/selenium/setup?clear_tables=forum_posts||
+|open|/forum||
+|assertTitle|Forum||
+|verifyTextPresent|There are no posts yet.||
+|assertText|link=Be the first one to post here|Be the first one to post here|
+|open|/selenium/setup?fixtures=forum_posts||
+|open|/forum||
+|verifyElementNotPresent|//div[@id='posts']/div[21]||
+|clickAndWait|link=Next page||
+|clickAndWait|link=Previous page||

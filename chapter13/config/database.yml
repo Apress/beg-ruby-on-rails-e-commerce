@@ -1,0 +1,20 @@
+development:
+  adapter: mysql
+  database: emporium_development
+  username: emporium
+  password: hacked
+  encoding: utf8
+
+test:
+  adapter: mysql
+  database: emporium_test
+  username: emporium
+  password: hacked
+  encoding: utf8
+
+production:
+  adapter: mysql
+  database: emporium_production
+  username: emporium
+  password: hacked
+  encoding: utf8

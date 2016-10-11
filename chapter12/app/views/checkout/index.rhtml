@@ -1,0 +1,82 @@
+<%= error_messages_for 'order' %> 
+<p><em>Your order is displayed in the shopping cart to the right.</em></p> 
+<form method="post" id="checkout" action="<%= url_for :action => :place_order %>"> 
+  <fieldset> 
+    <legend>Contact Information</legend> 
+    <p> 
+    <label for="order_email">Email</label><br/> 
+    <%= text_field :order, :email %> 
+    </p> 
+    <p> 
+    <label for="order_phone_number">Phone number</label><br/> 
+    <%= text_field :order, :phone_number %> 
+    </p> 
+  </fieldset> 
+  
+  <fieldset> 
+    <legend>Shipping Address</legend> 
+    <p> 
+    <label for="order_ship_to_first_name">First name</label><br/> 
+    <%= text_field :order, :ship_to_first_name %> 
+    </p> 
+    <p> 
+    <label for="order_ship_to_last_name">Last name</label><br/> 
+    <%= text_field :order, :ship_to_last_name %> 
+    </p> 
+    <p> 
+    <label for="order_ship_to_address">Address</label><br/> 
+    <%= text_field :order, :ship_to_address %> 
+    </p> 
+    <p> 
+    <label for="order_ship_to_city">City</label><br/> 
+    <%= text_field :order, :ship_to_city %> 
+    </p> 
+    <p> 
+    <label for="order_ship_to_postal_code">Postal/Zip code</label><br/> 
+    <%= text_field :order, :ship_to_postal_code %> 
+    </p> 
+    <p> 
+    <label for="order_ship_to_country">Country</label><br/> 
+    <select name="order[ship_to_country]" id="order_ship_to_country"> 
+      <option value="FI">Finland</option> 
+      <option value="NO">Norway</option> 
+      <option value="SE">Sweden</option> 
+      <option value="DK">Denmark</option> 
+    </select> 
+    </p> 
+  </fieldset>
+  
+  <fieldset> 
+    <legend>Billing Information</legend> 
+    <p> 
+    <label for="order_card_type">Credit card type</label><br/> 
+    <select name="order[card_type]" id="order_card_type"> 
+      <%= options_for_select([ "Visa", "MasterCard", "Discover" ], @order.card_type) %> 
+    </select> 
+    </p> 
+    <p> 
+    <label for="order_card_expiration_month">Expiration date</label><br/> 
+    <select name="order[card_expiration_month]"> 
+    <%= options_for_select(%w(1 2 3 4 5 6 7 8 9 10 11 12), @order.card_expiration_month) %> 
+    </select> 
+    / 
+    <select name="order[card_expiration_year]"> 
+<%= options_for_select(%w(2006 2007 2008 2009 2010 2011), @order.card_expiration_year) %> 
+    </select> 
+    </p> 
+    <p> 
+      <label for="order_card_number">Card number</label><br/> 
+      <%= text_field :order, :card_number %> 
+    </p> 
+    <p> 
+      <label for="order_card_verification_value"><abbr title="Card Verification Value">CVV</abbr>/<abbr title="Card Validation Check">CVC</abbr> 
+      </label><br/> 
+      <%= text_field :order, :card_verification_value %> 
+    </p> 
+  </fieldset> 
+  
+  
+  <p> 
+    <%= submit_tag "Place Order" %> 
+  </p> 
+</form>

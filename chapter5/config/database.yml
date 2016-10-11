@@ -1,0 +1,18 @@
+development:
+  adapter: mysql
+  database: emporium_development
+  username: emporium
+  password: hacked
+
+test:
+  adapter: mysql
+  database: emporium_test
+  username: emporium
+  password: hacked
+
+production:
+  adapter: mysql
+  database: emporium_production
+  username: root
+  password: 
+  host: localhost

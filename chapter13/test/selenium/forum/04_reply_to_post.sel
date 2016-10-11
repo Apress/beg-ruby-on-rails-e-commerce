@@ -1,0 +1,8 @@
+|assertTitle|'The Dice Man'||
+|clickAndWait|link=Reply||
+|type|post_name|George|
+|type|post_subject|Let's play|
+|type|post_body|I'm starting today!|
+|clickAndWait|commit||
+|verifyTextPresent|Let's play by George||
+|assertLocation|/forum||

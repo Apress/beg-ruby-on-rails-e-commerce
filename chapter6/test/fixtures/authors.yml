@@ -1,0 +1,24 @@
+jarkko_laine:
+  id: 1
+  first_name: Jarkko
+  last_name: Laine
+
+christian_hellsten:
+  id: 2
+  first_name: Christian
+  last_name: Hellsten
+
+joel_spolsky:
+  id: 3
+  first_name: Joel
+  last_name: Spolsky
+
+jeremy_keith:
+  id: 4
+  first_name: Jeremy
+  last_name: Keith
+
+leo_tolstoy:
+  id: 5
+  first_name: Leo
+  last_name: Tolstoy

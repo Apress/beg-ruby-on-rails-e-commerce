@@ -1,0 +1,13 @@
+<h2>by <%= @book.authors.map{|a| a.name}.join(", ") %></h2>
+<%= image_tag url_for_file_column(:book, :cover_image) unless @book.cover_image.blank? %>
+<dl>
+  <dt>Price</dt>
+  <dd>$<%= sprintf("%0.2f", @book.price) -%></dd>
+  <dt>Page count</dt>
+  <dd><%= @book.page_count -%></dd>
+  <dt>Publisher</dt>
+  <dd><%= @book.publisher.name %></dd>
+  <dt>Blurb</dt>
+  <dd><%= @book.blurb %></dd>
+</dl>
+<p><%= link_to "Back to Catalog", :action => "index" %></p>

@@ -1,0 +1,7 @@
+<% for tag in @tags %> 
+  <%= link_to tag.name, :action => 'show', :id => tag.name %><br/> 
+<% end %> 
+<p> 
+<%= link_to 'Previous page', { :page => @tag_pages.current.previous } if @tag_pages.current.previous %> 
+<%= link_to 'Next page', { :page => @tag_pages.current.next } if @tag_pages.current.next %> 
+</p>

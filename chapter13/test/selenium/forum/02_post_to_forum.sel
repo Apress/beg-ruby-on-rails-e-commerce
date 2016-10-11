@@ -1,0 +1,8 @@
+|open|/forum||
+|clickAndWait|link=New post||
+|type|post_name|Luke Rhinehart|
+|type|post_subject|The Dice Man|
+|type|post_body|Roll the die!|
+|clickAndWait|commit||
+|verifyTextPresent|The Dice Man by Luke Rhinehart||
+

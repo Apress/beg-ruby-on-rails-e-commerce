@@ -1,0 +1,12 @@
+<% if @posts.size > 0 %>
+<div><%= link_to 'New post' , :action => 'post' %></div>
+<p>
+<%= display_as_threads @posts %>
+</p>
+<% else %>
+There are no posts yet. <%= link_to 'Be the first one to post here' , :action => 'post' %>
+<% end %>
+<br/>
+
+<%= link_to 'Previous page' , { :page => @post_pages.current.previous } if @post_pages.current.previous %>
+<%= link_to 'Next page' , { :page => @post_pages.current.next } if @post_pages.current.next %>

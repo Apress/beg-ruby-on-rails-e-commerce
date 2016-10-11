@@ -1,0 +1,38 @@
+<%= render :partial => 'navigation' %> 
+<p> 
+  Order total $<%= @order.total %> 
+</p> 
+<h2>Contact Information</h2> 
+<dl> 
+  <dt>ID</dt> 
+  <dd><%= @order.id %></dd> 
+  <dt>Email</dt> 
+  <dd><%= @order.email %></dd> 
+  <dt>Phone number</dt> 
+  <dd><%= @order.phone_number %></dd> 
+</dl> 
+<h2>Shipping Address</h2> 
+<dl> 
+  <dt>First name</dt> 
+  <dd><%= @order.ship_to_first_name %></dd> 
+  <dt>Last name</dt> 
+  <dd><%= @order.ship_to_last_name %></dd> 
+  <dt>Address</dt> 
+  <dd><%= @order.ship_to_address %></dd> 
+  <dt>City</dt> 
+  <dd><%= @order.ship_to_city %></dd> 
+  <dt>Postal/Zip code</dt> 
+  <dd><%= @order.ship_to_postal_code %></dd> 
+  <dt>Country</dt> 
+  <dd><%= @order.ship_to_country %></dd> 
+</dl>
+<h2>Order Details</h2> 
+<% for item in @order.order_items %> 
+  <%= link_to item.book.title, :action => "show", 
+        :controller => "catalog", :id => item.book.id %> 
+  <%= pluralize(item.amount, "pc", "pcs") %>, 
+  $<%= item.price * item.amount %></br> 
+<% end %> 
+<p> 
+  <%= button_to "Close Order", :action => 'close', :id => @order unless @order.closed? %> 
+</p> 

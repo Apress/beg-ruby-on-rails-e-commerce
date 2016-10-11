@@ -1,0 +1,1862 @@
+  [4;36;1mSQL (0.237996)[0m   [0;1mDROP TABLE globalize_countries[0m
+  [4;35;1mSQL (0.030342)[0m   [0mCREATE TABLE globalize_countries (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `code` varchar(2), `english_name` varchar(255), `date_format` varchar(255), `currency_format` varchar(255), `currency_code` varchar(3), `thousands_sep` varchar(2), `decimal_sep` varchar(2), `currency_decimal_sep` varchar(2), `number_grouping_scheme` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.034205)[0m   [0;1mCREATE INDEX `globalize_countries_code_index` ON globalize_countries (`code`)[0m
+  [4;35;1mSQL (0.028584)[0m   [0mDROP TABLE globalize_translations[0m
+  [4;36;1mSQL (0.003348)[0m   [0;1mCREATE TABLE globalize_translations (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255), `tr_key` varchar(255), `table_name` varchar(255), `item_id` int(11), `facet` varchar(255), `built_in` tinyint(1) DEFAULT 1, `language_id` int(11), `pluralization_index` int(11), `text` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.009130)[0m   [0mCREATE INDEX `globalize_translations_tr_key_index` ON globalize_translations (`tr_key`, `language_id`)[0m
+  [4;36;1mSQL (0.008700)[0m   [0;1mCREATE INDEX `globalize_translations_table_name_index` ON globalize_translations (`table_name`, `item_id`, `language_id`)[0m
+  [4;35;1mSQL (0.037709)[0m   [0mDROP TABLE globalize_languages[0m
+  [4;36;1mSQL (0.003576)[0m   [0;1mCREATE TABLE globalize_languages (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `iso_639_1` varchar(2), `iso_639_2` varchar(3), `iso_639_3` varchar(3), `rfc_3066` varchar(255), `english_name` varchar(255), `english_name_locale` varchar(255), `english_name_modifier` varchar(255), `native_name` varchar(255), `native_name_locale` varchar(255), `native_name_modifier` varchar(255), `macro_language` tinyint(1), `direction` varchar(255), `pluralization` varchar(255), `scope` varchar(1)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.008698)[0m   [0mCREATE INDEX `globalize_languages_iso_639_1_index` ON globalize_languages (`iso_639_1`)[0m
+  [4;36;1mSQL (0.008702)[0m   [0;1mCREATE INDEX `globalize_languages_iso_639_2_index` ON globalize_languages (`iso_639_2`)[0m
+  [4;35;1mSQL (0.010667)[0m   [0mCREATE INDEX `globalize_languages_iso_639_3_index` ON globalize_languages (`iso_639_3`)[0m
+  [4;36;1mSQL (0.009043)[0m   [0;1mCREATE INDEX `globalize_languages_rfc_3066_index` ON globalize_languages (`rfc_3066`)[0m
+
+
+Processing TranslateController#index (for 127.0.0.1 at 2006-11-07 18:39:59) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"admin/translate", "locale"=>"sv"}
+  [4;36;1mGlobalize::Language Columns (0.062252)[0m   [0;1mSHOW FIELDS FROM globalize_languages[0m
+  [4;35;1mGlobalize::Language Load (0.002050)[0m   [0mSELECT * FROM globalize_languages WHERE (globalize_languages.`iso_639_1` = 'sv' ) LIMIT 1[0m
+  [4;36;1mGlobalize::Language Load (0.000558)[0m   [0;1mSELECT * FROM globalize_languages WHERE (globalize_languages.`rfc_3066` = 'en-US' ) LIMIT 1[0m
+  [4;35;1mGlobalize::Language Load (0.000359)[0m   [0mSELECT * FROM globalize_languages WHERE (globalize_languages.`iso_639_1` = 'en' ) LIMIT 1[0m
+  [4;36;1mGlobalize::ViewTranslation Columns (0.004427)[0m   [0;1mSHOW FIELDS FROM globalize_translations[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.013660)[0m   [0mSELECT * FROM globalize_translations WHERE (language_id = 6024) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) ORDER BY id desc [0m
+Rendering  within layouts/application
+Rendering admin/translate/index
+Completed in 0.16677 (5 reqs/sec) | Rendering: 0.05235 (31%) | DB: 0.08331 (49%) | 200 OK [http://localhost/admin/translate?locale=sv]
+
+
+Processing TranslateController#index (for 127.0.0.1 at 2006-11-07 18:40:00) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"admin/translate", "locale"=>"sv"}
+  [4;36;1mGlobalize::ViewTranslation Load (0.011294)[0m   [0;1mSELECT * FROM globalize_translations WHERE (language_id = 6024) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) ORDER BY id desc [0m
+Rendering  within layouts/application
+Rendering admin/translate/index
+Completed in 0.05389 (18 reqs/sec) | Rendering: 0.03664 (67%) | DB: 0.01129 (20%) | 200 OK [http://localhost/admin/translate?locale=sv]
+
+
+Processing TranslateController#get_translation_text (for 127.0.0.1 at 2006-11-07 18:40:17) [POST]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"get_translation_text", "id"=>"6384", "controller"=>"admin/translate"}
+
+
+ActionController::UnknownAction (No action responded to get_translation_text):
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/rails.rb:83:in `process'
+    /opt/local/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/rails.rb:81:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:585:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:584:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:691:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:691:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:678:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/configurator.rb:271:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/configurator.rb:270:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/bin/mongrel_rails:125:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/command.rb:211:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/bin/mongrel_rails:235
+    /opt/local/bin/mongrel_rails:18
+
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing TranslateController#get_translation_text (for 127.0.0.1 at 2006-11-07 18:40:36) [POST]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"get_translation_text", "id"=>"6384", "controller"=>"admin/translate"}
+
+
+ActionController::UnknownAction (No action responded to get_translation_text):
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/rails.rb:83:in `process'
+    /opt/local/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/rails.rb:81:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:585:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:584:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:691:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:691:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:678:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/configurator.rb:271:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/configurator.rb:270:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/bin/mongrel_rails:125:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/command.rb:211:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/bin/mongrel_rails:235
+    /opt/local/bin/mongrel_rails:18
+
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing TranslateController#create (for 127.0.0.1 at 2006-11-07 18:42:10) [POST]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"commit"=>"Add translation", "action"=>"create", "controller"=>"admin/translate", "view"=>{"text"=>"Next Page", "singular_form"=>"Nästa sida", "plural_form"=>""}}
+  [4;35;1mSQL (0.000144)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000431)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Next Page' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000321)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Next Page', 'Nästa sida', 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;36;1mSQL (0.025492)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/translate
+Completed in 0.03169 (31 reqs/sec) | DB: 0.02639 (83%) | 302 Found [http://localhost/admin/translate/create]
+
+
+Processing TranslateController#index (for 127.0.0.1 at 2006-11-07 18:42:10) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"admin/translate"}
+  [4;35;1mGlobalize::ViewTranslation Load (0.010773)[0m   [0mSELECT * FROM globalize_translations WHERE (language_id = 6024) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) ORDER BY id desc [0m
+Rendering  within layouts/application
+Rendering admin/translate/index
+Completed in 0.05310 (18 reqs/sec) | Rendering: 0.03685 (69%) | DB: 0.01077 (20%) | 200 OK [http://localhost/admin/translate]
+
+
+Processing TranslateController#index (for 127.0.0.1 at 2006-11-07 18:42:10) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"admin/translate"}
+  [4;36;1mGlobalize::ViewTranslation Load (0.010660)[0m   [0;1mSELECT * FROM globalize_translations WHERE (language_id = 6024) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) ORDER BY id desc [0m
+Rendering  within layouts/application
+Rendering admin/translate/index
+Completed in 0.05386 (18 reqs/sec) | Rendering: 0.03772 (70%) | DB: 0.01066 (19%) | 200 OK [http://localhost/admin/translate]
+
+
+Processing TranslateController#index (for 127.0.0.1 at 2006-11-07 18:42:56) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"admin/translate"}
+  [4;35;1mGlobalize::ViewTranslation Load (0.010980)[0m   [0mSELECT * FROM globalize_translations WHERE (language_id = 6024) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) ORDER BY id desc [0m
+Rendering  within layouts/application
+Rendering admin/translate/index
+Completed in 0.14308 (6 reqs/sec) | Rendering: 0.12603 (88%) | DB: 0.01098 (7%) | 200 OK [http://localhost/admin/translate]
+
+
+Processing TranslateController#get_translation_text (for 127.0.0.1 at 2006-11-07 18:42:57) [POST]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"get_translation_text", "id"=>"7031", "controller"=>"admin/translate"}
+  [4;36;1mGlobalize::ViewTranslation Load (0.000423)[0m   [0;1mSELECT * FROM globalize_translations WHERE (globalize_translations.id = '7031') AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+Completed in 0.00328 (305 reqs/sec) | Rendering: 0.00008 (2%) | DB: 0.00042 (12%) | 200 OK [http://localhost/admin/translate/get_translation_text/7031]
+
+
+Processing TranslateController#set_translation_text (for 127.0.0.1 at 2006-11-07 18:43:00) [POST]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"set_translation_text", "id"=>"7031", "value"=>"Nästa sidan", "controller"=>"admin/translate"}
+  [4;35;1mGlobalize::ViewTranslation Load (0.000420)[0m   [0mSELECT * FROM globalize_translations WHERE (globalize_translations.id = '7031') AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000099)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Update (0.000347)[0m   [0mUPDATE globalize_translations SET `text` = 'Nästa sidan', `pluralization_index` = 1, `item_id` = NULL, `built_in` = 1, `type` = 'ViewTranslation', `tr_key` = 'Next Page', `table_name` = NULL, `language_id` = 6024, `facet` = NULL WHERE id = 7031[0m
+  [4;36;1mSQL (0.033683)[0m   [0;1mCOMMIT[0m
+Completed in 0.03947 (25 reqs/sec) | Rendering: 0.00009 (0%) | DB: 0.03455 (87%) | 200 OK [http://localhost/admin/translate/set_translation_text/7031]
+
+
+Processing TranslateController#get_translation_text (for 127.0.0.1 at 2006-11-07 18:43:01) [POST]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"get_translation_text", "id"=>"7031", "controller"=>"admin/translate"}
+  [4;35;1mGlobalize::ViewTranslation Load (0.000554)[0m   [0mSELECT * FROM globalize_translations WHERE (globalize_translations.id = '7031') AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+Completed in 0.00361 (276 reqs/sec) | Rendering: 0.00007 (2%) | DB: 0.00055 (15%) | 200 OK [http://localhost/admin/translate/get_translation_text/7031]
+
+
+Processing TranslateController#set_translation_text (for 127.0.0.1 at 2006-11-07 18:43:03) [POST]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"set_translation_text", "id"=>"7031", "value"=>"Nästa sida", "controller"=>"admin/translate"}
+  [4;36;1mGlobalize::ViewTranslation Load (0.001651)[0m   [0;1mSELECT * FROM globalize_translations WHERE (globalize_translations.id = '7031') AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000213)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Update (0.002780)[0m   [0;1mUPDATE globalize_translations SET `text` = 'Nästa sida', `pluralization_index` = 1, `item_id` = NULL, `built_in` = 1, `type` = 'ViewTranslation', `tr_key` = 'Next Page', `table_name` = NULL, `language_id` = 6024, `facet` = NULL WHERE id = 7031[0m
+  [4;35;1mSQL (0.009423)[0m   [0mCOMMIT[0m
+Completed in 0.01981 (50 reqs/sec) | Rendering: 0.00011 (0%) | DB: 0.01407 (71%) | 200 OK [http://localhost/admin/translate/set_translation_text/7031]
+
+
+Processing TranslateController#index (for 127.0.0.1 at 2006-11-07 18:48:08) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"admin/translate"}
+  [4;36;1mGlobalize::ViewTranslation Load (0.011263)[0m   [0;1mSELECT * FROM globalize_translations WHERE (language_id = 6024) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) ORDER BY id desc [0m
+Rendering  within layouts/application
+Rendering admin/translate/index
+Completed in 0.12688 (7 reqs/sec) | Rendering: 0.10998 (86%) | DB: 0.01126 (8%) | 200 OK [http://localhost/admin/translate]
+
+
+Processing CatalogController#index (for 127.0.0.1 at 2006-11-07 18:48:30) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"catalog"}
+  [4;35;1mCart Columns (0.032570)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mSQL (0.000266)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.045711)[0m   [0mINSERT INTO carts () VALUES()[0m
+  [4;36;1mSQL (0.000131)[0m   [0;1mCOMMIT[0m
+  [4;35;1mBook Count (0.062813)[0m   [0mSELECT COUNT(DISTINCT books.id) FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id [0m
+  [4;36;1mBook Columns (0.002601)[0m   [0;1mSHOW FIELDS FROM books[0m
+  [4;35;1mAuthor Columns (0.002920)[0m   [0mSHOW FIELDS FROM authors[0m
+  [4;36;1mPublisher Columns (0.001641)[0m   [0;1mSHOW FIELDS FROM publishers[0m
+  [4;35;1mBook Load IDs For Limited Eager Loading (0.000766)[0m   [0mSELECT id FROM books ORDER BY books.id desc LIMIT 0, 10[0m
+  [4;36;1mBook Load Including Associations (0.015438)[0m   [0;1mSELECT books.`id` AS t0_r0, books.`title` AS t0_r1, books.`publisher_id` AS t0_r2, books.`published_at` AS t0_r3, books.`isbn` AS t0_r4, books.`blurb` AS t0_r5, books.`page_count` AS t0_r6, books.`price` AS t0_r7, books.`created_at` AS t0_r8, books.`updated_at` AS t0_r9, books.`cover_image` AS t0_r10, authors.`id` AS t1_r0, authors.`first_name` AS t1_r1, authors.`last_name` AS t1_r2, publishers.`id` AS t2_r0, publishers.`name` AS t2_r1 FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id WHERE books.id IN ('24', '23', '22', '17', '16', '15', '14', '13', '12', '11') ORDER BY books.id desc [0m
+Rendering  within layouts/application
+Rendering catalog/index
+  [4;35;1mSQL (0.000169)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000763)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000419)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Publisher', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;36;1mSQL (0.016825)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000140)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000512)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000154)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000151)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000518)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000102)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000103)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000443)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000139)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000115)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000476)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000120)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000354)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000482)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000127)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000142)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000512)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000102)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000102)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000441)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000153)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000149)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000576)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000118)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000148)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000488)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000122)[0m   [0mCOMMIT[0m
+Rendered catalog/_books (0.06774)
+  [4;36;1mSQL (0.000126)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000594)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Next page' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000111)[0m   [0;1mCOMMIT[0m
+  [4;35;1mCartItem Load (0.003239)[0m   [0mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1662) [0m
+Rendered cart/_cart (0.03834)
+Completed in 0.31711 (3 reqs/sec) | Rendering: 0.09264 (29%) | DB: 0.19409 (61%) | 200 OK [http://localhost/]
+
+
+Processing TranslateController#index (for 127.0.0.1 at 2006-11-07 18:48:34) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"admin/translate"}
+  [4;36;1mGlobalize::ViewTranslation Load (0.013277)[0m   [0;1mSELECT * FROM globalize_translations WHERE (language_id = 6024) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) ORDER BY id desc [0m
+Rendering  within layouts/application
+Rendering admin/translate/index
+Completed in 0.05679 (17 reqs/sec) | Rendering: 0.03768 (66%) | DB: 0.01328 (23%) | 200 OK [http://localhost/admin/translate]
+
+
+Processing CatalogController#index (for 127.0.0.1 at 2006-11-07 18:48:49) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"catalog", "page"=>"2"}
+  [4;35;1mCart Load (0.000696)[0m   [0mSELECT * FROM carts WHERE (carts.id = 1662) LIMIT 1[0m
+  [4;36;1mBook Count (0.001958)[0m   [0;1mSELECT COUNT(DISTINCT books.id) FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id [0m
+  [4;35;1mBook Columns (0.002454)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mAuthor Columns (0.002930)[0m   [0;1mSHOW FIELDS FROM authors[0m
+  [4;35;1mPublisher Columns (0.001100)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mBook Load IDs For Limited Eager Loading (0.000221)[0m   [0;1mSELECT id FROM books ORDER BY books.id desc LIMIT 10, 10[0m
+  [4;35;1mBook Load Including Associations (0.002685)[0m   [0mSELECT books.`id` AS t0_r0, books.`title` AS t0_r1, books.`publisher_id` AS t0_r2, books.`published_at` AS t0_r3, books.`isbn` AS t0_r4, books.`blurb` AS t0_r5, books.`page_count` AS t0_r6, books.`price` AS t0_r7, books.`created_at` AS t0_r8, books.`updated_at` AS t0_r9, books.`cover_image` AS t0_r10, authors.`id` AS t1_r0, authors.`first_name` AS t1_r1, authors.`last_name` AS t1_r2, publishers.`id` AS t2_r0, publishers.`name` AS t2_r1 FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id WHERE books.id IN ('10', '9', '8', '7', '6', '5', '4', '2', '1') ORDER BY books.id desc [0m
+Rendering  within layouts/application
+Rendering catalog/index
+  [4;36;1mSQL (0.000147)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000637)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000095)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000429)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000082)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000141)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000476)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000082)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000093)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000409)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000092)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000090)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000421)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000088)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000105)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000490)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000170)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000105)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000430)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000228)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000463)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000086)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000124)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000414)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000081)[0m   [0;1mCOMMIT[0m
+Rendered catalog/_books (0.12478)
+  [4;35;1mSQL (0.000091)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000352)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Previous page' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000367)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Previous page', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;36;1mSQL (0.010094)[0m   [0;1mCOMMIT[0m
+  [4;35;1mCart Columns (0.002457)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mCartItem Load (0.001249)[0m   [0;1mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1662) [0m
+Rendered cart/_cart (0.00768)
+Completed in 0.19597 (5 reqs/sec) | Rendering: 0.13926 (71%) | DB: 0.03286 (16%) | 200 OK [http://localhost/?page=2]
+
+
+Processing TranslateController#index (for 127.0.0.1 at 2006-11-07 18:48:55) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"admin/translate"}
+  [4;35;1mGlobalize::ViewTranslation Load (0.010947)[0m   [0mSELECT * FROM globalize_translations WHERE (language_id = 6024) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) ORDER BY id desc [0m
+Rendering  within layouts/application
+Rendering admin/translate/index
+Completed in 0.05801 (17 reqs/sec) | Rendering: 0.04053 (69%) | DB: 0.01095 (18%) | 200 OK [http://localhost/admin/translate]
+
+
+Processing TranslateController#get_translation_text (for 127.0.0.1 at 2006-11-07 18:49:16) [POST]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"get_translation_text", "id"=>"7032", "controller"=>"admin/translate"}
+  [4;36;1mGlobalize::ViewTranslation Load (0.000614)[0m   [0;1mSELECT * FROM globalize_translations WHERE (globalize_translations.id = '7032') AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+Completed in 0.00454 (220 reqs/sec) | Rendering: 0.00008 (1%) | DB: 0.00061 (13%) | 200 OK [http://localhost/admin/translate/get_translation_text/7032]
+
+
+Processing TranslateController#set_translation_text (for 127.0.0.1 at 2006-11-07 18:49:22) [POST]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"set_translation_text", "id"=>"7032", "value"=>"Förlag", "controller"=>"admin/translate"}
+  [4;35;1mGlobalize::ViewTranslation Load (0.000490)[0m   [0mSELECT * FROM globalize_translations WHERE (globalize_translations.id = '7032') AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000134)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Update (0.000396)[0m   [0mUPDATE globalize_translations SET `text` = 'Förlag', `pluralization_index` = 1, `item_id` = NULL, `built_in` = 1, `type` = 'ViewTranslation', `tr_key` = 'Publisher', `table_name` = NULL, `language_id` = 6024, `facet` = NULL WHERE id = 7032[0m
+  [4;36;1mSQL (0.020909)[0m   [0;1mCOMMIT[0m
+Completed in 0.02803 (35 reqs/sec) | Rendering: 0.00009 (0%) | DB: 0.02193 (78%) | 200 OK [http://localhost/admin/translate/set_translation_text/7032]
+
+
+Processing CatalogController#index (for 127.0.0.1 at 2006-11-07 18:49:26) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"catalog"}
+  [4;35;1mCart Load (0.000345)[0m   [0mSELECT * FROM carts WHERE (carts.id = 1662) LIMIT 1[0m
+  [4;36;1mBook Count (0.001773)[0m   [0;1mSELECT COUNT(DISTINCT books.id) FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id [0m
+  [4;35;1mBook Columns (0.002499)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mAuthor Columns (0.001908)[0m   [0;1mSHOW FIELDS FROM authors[0m
+  [4;35;1mPublisher Columns (0.001898)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mBook Load IDs For Limited Eager Loading (0.000792)[0m   [0;1mSELECT id FROM books ORDER BY books.id desc LIMIT 0, 10[0m
+  [4;35;1mBook Load Including Associations (0.003457)[0m   [0mSELECT books.`id` AS t0_r0, books.`title` AS t0_r1, books.`publisher_id` AS t0_r2, books.`published_at` AS t0_r3, books.`isbn` AS t0_r4, books.`blurb` AS t0_r5, books.`page_count` AS t0_r6, books.`price` AS t0_r7, books.`created_at` AS t0_r8, books.`updated_at` AS t0_r9, books.`cover_image` AS t0_r10, authors.`id` AS t1_r0, authors.`first_name` AS t1_r1, authors.`last_name` AS t1_r2, publishers.`id` AS t2_r0, publishers.`name` AS t2_r1 FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id WHERE books.id IN ('24', '23', '22', '17', '16', '15', '14', '13', '12', '11') ORDER BY books.id desc [0m
+Rendering  within layouts/application
+Rendering catalog/index
+  [4;36;1mSQL (0.000165)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.002855)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000157)[0m   [0;1mCOMMIT[0m
+Rendered catalog/_books (0.02063)
+  [4;35;1mCart Columns (0.002254)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mCartItem Load (0.000800)[0m   [0;1mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1662) [0m
+Rendered cart/_cart (0.00670)
+Completed in 0.07023 (14 reqs/sec) | Rendering: 0.03172 (45%) | DB: 0.01890 (26%) | 200 OK [http://localhost/]
+
+
+Processing CatalogController#index (for 127.0.0.1 at 2006-11-07 18:49:42) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"catalog"}
+  [4;35;1mCart Load (0.000534)[0m   [0mSELECT * FROM carts WHERE (carts.id = 1662) LIMIT 1[0m
+  [4;36;1mBook Count (0.002369)[0m   [0;1mSELECT COUNT(DISTINCT books.id) FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id [0m
+  [4;35;1mBook Columns (0.002441)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mAuthor Columns (0.001741)[0m   [0;1mSHOW FIELDS FROM authors[0m
+  [4;35;1mPublisher Columns (0.002429)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mBook Load IDs For Limited Eager Loading (0.000469)[0m   [0;1mSELECT id FROM books ORDER BY books.id desc LIMIT 0, 10[0m
+  [4;35;1mBook Load Including Associations (0.003521)[0m   [0mSELECT books.`id` AS t0_r0, books.`title` AS t0_r1, books.`publisher_id` AS t0_r2, books.`published_at` AS t0_r3, books.`isbn` AS t0_r4, books.`blurb` AS t0_r5, books.`page_count` AS t0_r6, books.`price` AS t0_r7, books.`created_at` AS t0_r8, books.`updated_at` AS t0_r9, books.`cover_image` AS t0_r10, authors.`id` AS t1_r0, authors.`first_name` AS t1_r1, authors.`last_name` AS t1_r2, publishers.`id` AS t2_r0, publishers.`name` AS t2_r1 FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id WHERE books.id IN ('24', '23', '22', '17', '16', '15', '14', '13', '12', '11') ORDER BY books.id desc [0m
+Rendering  within layouts/application
+Rendering catalog/index
+Rendered catalog/_books (0.01696)
+  [4;36;1mCart Columns (0.002305)[0m   [0;1mSHOW FIELDS FROM carts[0m
+  [4;35;1mCartItem Load (0.000675)[0m   [0mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1662) [0m
+Rendered cart/_cart (0.00710)
+Completed in 0.07095 (14 reqs/sec) | Rendering: 0.03317 (46%) | DB: 0.01648 (23%) | 200 OK [http://localhost/]
+
+
+Processing TranslateController#index (for 127.0.0.1 at 2006-11-07 18:57:38) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"admin/translate"}
+  [4;36;1mGlobalize::ViewTranslation Load (0.012090)[0m   [0;1mSELECT * FROM globalize_translations WHERE (language_id = 6024) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) ORDER BY id desc [0m
+Rendering  within layouts/application
+Rendering admin/translate/index
+Completed in 0.06237 (16 reqs/sec) | Rendering: 0.04430 (71%) | DB: 0.01209 (19%) | 200 OK [http://localhost/admin/translate]
+
+
+Processing BookController#index (for 127.0.0.1 at 2006-11-07 18:57:41) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"admin/book"}
+Redirected to http://localhost:3000/account/login
+Filter chain halted as [login_required] returned false
+Completed in 0.00927 (107 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/admin/book]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-11-07 18:57:41) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/application
+Rendering account/login
+Completed in 0.00539 (185 reqs/sec) | Rendering: 0.00410 (76%) | DB: 0.00000 (0%) | 200 OK [http://localhost/account/login]
+
+
+Processing CatalogController#index (for 127.0.0.1 at 2006-11-07 18:57:44) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"catalog"}
+  [4;35;1mCart Load (0.000474)[0m   [0mSELECT * FROM carts WHERE (carts.id = 1662) LIMIT 1[0m
+  [4;36;1mBook Count (0.001822)[0m   [0;1mSELECT COUNT(DISTINCT books.id) FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id [0m
+  [4;35;1mBook Columns (0.002381)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mAuthor Columns (0.001067)[0m   [0;1mSHOW FIELDS FROM authors[0m
+  [4;35;1mPublisher Columns (0.001653)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mBook Load IDs For Limited Eager Loading (0.000222)[0m   [0;1mSELECT id FROM books ORDER BY books.id desc LIMIT 0, 10[0m
+  [4;35;1mBook Load Including Associations (0.003729)[0m   [0mSELECT books.`id` AS t0_r0, books.`title` AS t0_r1, books.`publisher_id` AS t0_r2, books.`published_at` AS t0_r3, books.`isbn` AS t0_r4, books.`blurb` AS t0_r5, books.`page_count` AS t0_r6, books.`price` AS t0_r7, books.`created_at` AS t0_r8, books.`updated_at` AS t0_r9, books.`cover_image` AS t0_r10, authors.`id` AS t1_r0, authors.`first_name` AS t1_r1, authors.`last_name` AS t1_r2, publishers.`id` AS t2_r0, publishers.`name` AS t2_r1 FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id LEFT OUTER JOIN globalize_translations AS t_title ON t_title.table_name = 'books' AND books.id = t_title.item_id AND t_title.facet = 'title' AND t_title.language_id = 6024 LEFT OUTER JOIN globalize_translations AS t_blurb ON t_blurb.table_name = 'books' AND books.id = t_blurb.item_id AND t_blurb.facet = 'blurb' AND t_blurb.language_id = 6024 WHERE books.id IN ('24', '23', '22', '17', '16', '15', '14', '13', '12', '11') ORDER BY books.id desc [0m
+Rendering  within layouts/application
+Rendering catalog/index
+  [4;36;1mSQL (0.000121)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000649)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'new' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000422)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'new', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;35;1mSQL (0.022213)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000493)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000506)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'A Book' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000349)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'A Book', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;35;1mSQL (0.007404)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000156)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000497)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'DOM Scripting' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000348)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'DOM Scripting', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;35;1mSQL (0.005583)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000150)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000484)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'The Idiot' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000409)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'The Idiot', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;35;1mSQL (0.006338)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000160)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000551)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Crime and Punishment' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000405)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Crime and Punishment', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;35;1mSQL (0.004942)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000153)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000520)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'War and Peace' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000487)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'War and Peace', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;35;1mSQL (0.007315)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000153)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000472)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Anna Karenina' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000401)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Anna Karenina', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;35;1mSQL (0.007374)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000156)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000477)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Tom Sawyer' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000379)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Tom Sawyer', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;35;1mSQL (0.007474)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000150)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000636)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Adventures of Huckleberry Finn' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000386)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Adventures of Huckleberry Finn', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;35;1mSQL (0.005638)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000154)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000486)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'The Murders in the Rue Morgue' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000479)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'The Murders in the Rue Morgue', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;35;1mSQL (0.006686)[0m   [0mCOMMIT[0m
+Rendered catalog/_books (0.27372)
+  [4;36;1mCart Columns (0.002384)[0m   [0;1mSHOW FIELDS FROM carts[0m
+  [4;35;1mCartItem Load (0.000754)[0m   [0mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1662) [0m
+Rendered cart/_cart (0.00720)
+Completed in 0.32482 (3 reqs/sec) | Rendering: 0.19793 (60%) | DB: 0.10664 (32%) | 200 OK [http://localhost/]
+
+
+Processing TranslateController#index (for 127.0.0.1 at 2006-11-07 18:57:50) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"admin/translate"}
+  [4;36;1mGlobalize::ViewTranslation Load (0.015104)[0m   [0;1mSELECT * FROM globalize_translations WHERE (language_id = 6024) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) ORDER BY id desc [0m
+Rendering  within layouts/application
+Rendering admin/translate/index
+Completed in 0.07371 (13 reqs/sec) | Rendering: 0.05045 (68%) | DB: 0.01510 (20%) | 200 OK [http://localhost/admin/translate]
+
+
+Processing ForumController#index (for 127.0.0.1 at 2006-11-07 19:00:15) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"forum", "locale"=>"sv"}
+  [4;36;1mGlobalize::Language Columns (0.003257)[0m   [0;1mSHOW FIELDS FROM globalize_languages[0m
+  [4;35;1mGlobalize::Language Load (0.000835)[0m   [0mSELECT * FROM globalize_languages WHERE (globalize_languages.`iso_639_1` = 'sv' ) LIMIT 1[0m
+  [4;36;1mForumPost Columns (0.020434)[0m   [0;1mSHOW FIELDS FROM forum_posts[0m
+  [4;35;1mSQL (0.000263)[0m   [0mSELECT count(*) AS count_all FROM forum_posts [0m
+  [4;36;1mForumPost Load (0.026917)[0m   [0;1mSELECT * FROM forum_posts ORDER BY root_id desc, lft LIMIT 0, 20[0m
+Rendering  within layouts/application
+Rendering forum/index
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occured while evaluating nil.localize) on line #4 of app/views/forum/index.rhtml:
+1: <% if @posts.size > 0 %>
+2: <div><%= link_to 'New post' , :action => 'post' %></div>
+3: <p>
+4: <%= display_as_threads @posts %>
+5: </p>
+6: <% else %>
+7: There are no posts yet. <%= link_to 'Be the first one to post here' , :action => 'post' %>
+
+    #{RAILS_ROOT}/app/helpers/forum_helper.rb:9:in `display_as_threads'
+    #{RAILS_ROOT}/app/helpers/forum_helper.rb:4:in `display_as_threads'
+    #{RAILS_ROOT}/app/views/forum/index.rhtml:4:in `_run_rhtml_forum_index'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:316:in `compile_and_render_template'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:292:in `render_template'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:251:in `globalize_old_render_file'
+    #{RAILS_ROOT}/vendor/plugins/globalize/lib/globalize/rails/action_view.rb:16:in `render_file'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:726:in `render_file'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/layout.rb:245:in `render_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/rails.rb:83:in `process'
+    /opt/local/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/rails.rb:81:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:585:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:584:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:691:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:691:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:678:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/configurator.rb:271:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/configurator.rb:270:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/bin/mongrel_rails:125:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/command.rb:211:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/bin/mongrel_rails:235
+    /opt/local/bin/mongrel_rails:18
+
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing ForumController#index (for 127.0.0.1 at 2006-11-07 19:01:27) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"forum", "locale"=>"sv"}
+  [4;35;1mForumPost Columns (0.002535)[0m   [0mSHOW FIELDS FROM forum_posts[0m
+  [4;36;1mSQL (0.000227)[0m   [0;1mSELECT count(*) AS count_all FROM forum_posts [0m
+  [4;35;1mForumPost Load (0.000212)[0m   [0mSELECT * FROM forum_posts ORDER BY root_id desc, lft LIMIT 0, 20[0m
+Rendering  within layouts/application
+Rendering forum/index
+Completed in 0.01967 (50 reqs/sec) | Rendering: 0.01258 (63%) | DB: 0.00297 (15%) | 200 OK [http://localhost/forum?locale=sv]
+
+
+Processing ForumController#post (for 127.0.0.1 at 2006-11-07 19:01:29) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"post", "controller"=>"forum"}
+  [4;36;1mForumPost Columns (0.002886)[0m   [0;1mSHOW FIELDS FROM forum_posts[0m
+Rendering  within layouts/application
+Rendering forum/post
+Completed in 0.03463 (28 reqs/sec) | Rendering: 0.02782 (80%) | DB: 0.00289 (8%) | 200 OK [http://localhost/forum/post]
+
+
+Processing ForumController#create (for 127.0.0.1 at 2006-11-07 19:01:35) [POST]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"commit"=>"Post", "post"=>{"name"=>"jarkko", "body"=>"howdy", "subject"=>"hi", "parent_id"=>"0"}, "action"=>"create", "controller"=>"forum"}
+  [4;35;1mForumPost Columns (0.002956)[0m   [0mSHOW FIELDS FROM forum_posts[0m
+  [4;36;1mSQL (0.000153)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000099)[0m   [0mCOMMIT[0m
+Rendering actionpostlayoutfalse within layouts/application
+Rendering forum/post
+  [4;36;1mSQL (0.000170)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Columns (0.003109)[0m   [0mSHOW FIELDS FROM globalize_translations[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000929)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'post' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000400)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'post', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;36;1mSQL (0.024443)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000136)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000636)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = '%d errors prohibited this post from being saved' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.004130)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, '%d errors prohibited this post from being saved', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;36;1mSQL (0.003535)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000255)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000605)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'There were problems with the following fields:' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000930)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'There were problems with the following fields:', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;36;1mSQL (0.008553)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000122)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000669)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Subject is too short (minimum is %d characters)' AND language_id = 6024 AND pluralization_index = 2) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000390)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 2, 'Subject is too short (minimum is %d characters)', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;36;1mSQL (0.008187)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000182)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000523)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'is too short (minimum is %d characters)' AND language_id = 6024 AND pluralization_index = 2) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000376)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 2, 'is too short (minimum is %d characters)', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;36;1mSQL (0.007586)[0m   [0;1mCOMMIT[0m
+Completed in 0.12635 (7 reqs/sec) | Rendering: 0.05027 (39%) | DB: 0.06907 (54%) | 200 OK [http://localhost/forum/create]
+
+
+Processing ForumController#create (for 127.0.0.1 at 2006-11-07 19:01:41) [POST]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"commit"=>"Post", "post"=>{"name"=>"jarkko", "body"=>"howdy", "subject"=>"hi there", "parent_id"=>"0"}, "action"=>"create", "controller"=>"forum"}
+  [4;35;1mForumPost Columns (0.002942)[0m   [0mSHOW FIELDS FROM forum_posts[0m
+  [4;36;1mSQL (0.000145)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000381)[0m   [0mINSERT INTO forum_posts (`name`, `updated_at`, `body`, `depth`, `lft`, `subject`, `root_id`, `parent_id`, `rgt`, `created_at`) VALUES('jarkko', '2006-11-07 19:01:41', 'howdy', 0, 0, 'hi there', 0, 0, 0, '2006-11-07 19:01:41')[0m
+  [4;36;1mForumPost Load (0.000363)[0m   [0;1mSELECT * FROM forum_posts WHERE (forum_posts.id = 3) LIMIT 1[0m
+  [4;35;1mForumPost Update (0.000459)[0m   [0mUPDATE forum_posts SET `created_at` = '2006-11-07 19:01:41', `rgt` = 0, `root_id` = 3, `body` = 'howdy', `lft` = 0, `depth` = 0, `parent_id` = 0, `subject` = 'hi there', `updated_at` = '2006-11-07 19:01:41', `name` = 'jarkko' WHERE id = 3[0m
+  [4;36;1mSQL (0.000089)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/forum
+Completed in 0.10208 (9 reqs/sec) | DB: 0.00438 (4%) | 302 Found [http://localhost/forum/create]
+
+
+Processing ForumController#index (for 127.0.0.1 at 2006-11-07 19:01:41) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"forum"}
+  [4;35;1mForumPost Columns (0.002889)[0m   [0mSHOW FIELDS FROM forum_posts[0m
+  [4;36;1mSQL (0.000661)[0m   [0;1mSELECT count(*) AS count_all FROM forum_posts [0m
+  [4;35;1mForumPost Load (0.000311)[0m   [0mSELECT * FROM forum_posts ORDER BY root_id desc, lft LIMIT 0, 20[0m
+Rendering  within layouts/application
+Rendering forum/index
+  [4;36;1mSQL (0.000152)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000509)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Tuesday [weekday]' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000135)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000099)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000459)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'November [month]' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000097)[0m   [0mCOMMIT[0m
+Completed in 0.02838 (35 reqs/sec) | Rendering: 0.01749 (61%) | DB: 0.00531 (18%) | 200 OK [http://localhost/forum]
+
+
+Processing CatalogController#index (for 127.0.0.1 at 2006-11-07 19:06:59) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"index", "controller"=>"catalog"}
+  [4;36;1mCart Load (0.000672)[0m   [0;1mSELECT * FROM carts WHERE (carts.id = 1662) LIMIT 1[0m
+  [4;35;1mBook Count (0.002237)[0m   [0mSELECT COUNT(DISTINCT books.id) FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id [0m
+  [4;36;1mGlobalize::Language Load (0.000528)[0m   [0;1mSELECT * FROM globalize_languages WHERE (globalize_languages.`rfc_3066` = 'en-US' ) LIMIT 1[0m
+  [4;35;1mGlobalize::Language Load (0.000307)[0m   [0mSELECT * FROM globalize_languages WHERE (globalize_languages.`iso_639_1` = 'en' ) LIMIT 1[0m
+  [4;36;1mBook Columns (0.002168)[0m   [0;1mSHOW FIELDS FROM books[0m
+  [4;35;1mAuthor Columns (0.049052)[0m   [0mSHOW FIELDS FROM authors[0m
+  [4;36;1mPublisher Columns (0.027978)[0m   [0;1mSHOW FIELDS FROM publishers[0m
+  [4;35;1mBook Load IDs For Limited Eager Loading (0.001308)[0m   [0mSELECT id FROM books ORDER BY books.id desc LIMIT 0, 10[0m
+  [4;36;1mBook Load Including Associations (0.008287)[0m   [0;1mSELECT books.`id` AS t0_r0, books.`title` AS t0_r1, books.`publisher_id` AS t0_r2, books.`published_at` AS t0_r3, books.`isbn` AS t0_r4, books.`blurb` AS t0_r5, books.`page_count` AS t0_r6, books.`price` AS t0_r7, books.`created_at` AS t0_r8, books.`updated_at` AS t0_r9, books.`cover_image` AS t0_r10, authors.`id` AS t1_r0, authors.`first_name` AS t1_r1, authors.`last_name` AS t1_r2, publishers.`id` AS t2_r0, publishers.`name` AS t2_r1 FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id LEFT OUTER JOIN globalize_translations AS t_title ON t_title.table_name = 'books' AND books.id = t_title.item_id AND t_title.facet = 'title' AND t_title.language_id = 6024 LEFT OUTER JOIN globalize_translations AS t_blurb ON t_blurb.table_name = 'books' AND books.id = t_blurb.item_id AND t_blurb.facet = 'blurb' AND t_blurb.language_id = 6024 WHERE books.id IN ('24', '23', '22', '17', '16', '15', '14', '13', '12', '11') ORDER BY books.id desc [0m
+Rendering  within layouts/application
+Rendering catalog/index
+  [4;35;1mSQL (0.002583)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000603)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'new' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000452)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000560)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000121)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000137)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000632)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'A Book' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000118)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000117)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000533)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'DOM Scripting' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000121)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000118)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000450)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'The Idiot' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000086)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000161)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000407)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Crime and Punishment' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000126)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000323)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000442)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'War and Peace' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000082)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000091)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000367)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Anna Karenina' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000089)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000362)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Tom Sawyer' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000082)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000088)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000389)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Adventures of Huckleberry Finn' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000091)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000106)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000476)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'The Murders in the Rue Morgue' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000103)[0m   [0mCOMMIT[0m
+Rendered catalog/_books (0.04947)
+  [4;36;1mSQL (0.000106)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000425)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Next page' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000080)[0m   [0;1mCOMMIT[0m
+  [4;35;1mCart Columns (0.001830)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mCartItem Load (0.000621)[0m   [0;1mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1662) [0m
+Rendered cart/_cart (0.00874)
+Completed in 0.18519 (5 reqs/sec) | Rendering: 0.05643 (30%) | DB: 0.10623 (57%) | 200 OK [http://localhost/]
+
+
+Processing CatalogController#show (for 127.0.0.1 at 2006-11-07 19:07:03) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"show", "id"=>"24", "controller"=>"catalog"}
+  [4;35;1mCart Load (0.000355)[0m   [0mSELECT * FROM carts WHERE (carts.id = 1662) LIMIT 1[0m
+  [4;36;1mBook Columns (0.002870)[0m   [0;1mSHOW FIELDS FROM books[0m
+  [4;35;1mBook Load (0.025552)[0m   [0mSELECT books.id, books.publisher_id, books.published_at, books.isbn, books.page_count, books.price, books.created_at, books.updated_at, books.cover_image, COALESCE(t_title.text, books.title) AS title, t_title.text AS title_not_base , COALESCE(t_blurb.text, books.blurb) AS blurb, t_blurb.text AS blurb_not_base FROM books LEFT OUTER JOIN globalize_translations AS t_title ON t_title.table_name = 'books' AND books.id = t_title.item_id AND t_title.facet = 'title' AND t_title.language_id = 6024 LEFT OUTER JOIN globalize_translations AS t_blurb ON t_blurb.table_name = 'books' AND books.id = t_blurb.item_id AND t_blurb.facet = 'blurb' AND t_blurb.language_id = 6024 WHERE (books.id = '24') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering catalog/show
+  [4;36;1mJoin Table Columns (0.002165)[0m   [0;1mSHOW FIELDS FROM authors_books[0m
+  [4;35;1mAuthor Load (0.001743)[0m   [0mSELECT * FROM authors INNER JOIN authors_books ON authors.id = authors_books.author_id WHERE (authors_books.book_id = 24 ) [0m
+  [4;36;1mAuthor Columns (0.002023)[0m   [0;1mSHOW FIELDS FROM authors[0m
+  [4;35;1mPublisher Load (0.001034)[0m   [0mSELECT * FROM publishers WHERE (publishers.id = 1) LIMIT 1[0m
+  [4;36;1mPublisher Columns (0.002017)[0m   [0;1mSHOW FIELDS FROM publishers[0m
+  [4;35;1mJoin Table Columns (0.027205)[0m   [0mSHOW FIELDS FROM books_tags[0m
+  [4;36;1mTag Load (0.031799)[0m   [0;1mSELECT * FROM tags INNER JOIN books_tags ON tags.id = books_tags.tag_id WHERE (books_tags.book_id = 24 ) [0m
+  [4;35;1mTag Columns (0.001958)[0m   [0mSHOW FIELDS FROM tags[0m
+  [4;36;1mBook Load (0.003654)[0m   [0;1mSELECT o.*, COUNT(jt2.book_id) AS count FROM books o, books_tags jt, tags t, books_tags jt2 
+ WHERE jt.book_id=24 AND t.id = jt.tag_id 
+ AND jt2.book_id != jt.book_id 
+ AND jt2.tag_id=jt.tag_id AND o.id = jt2.book_id GROUP BY o.id ORDER BY count DESC LIMIT 5[0m
+  [4;35;1mSQL (0.001023)[0m   [0mSELECT jt.book_id AS o_id FROM books_tags jt, tags t 
+ WHERE jt.tag_id = t.id AND ( t.name IN ('Programming','Rails','Ruby'))GROUP BY jt.book_id 
+ HAVING COUNT(jt.book_id)=3[0m
+  [4;36;1mSQL (0.001984)[0m   [0;1mSELECT t.id AS id, t.name AS name, COUNT(jt.book_id) AS count FROM books_tags jt, tags t 
+ WHERE jt.book_id IN (2,24) 
+ AND t.id = jt.tag_id
+ GROUP BY t.id,t.name,jt.tag_id 
+ ORDER BY count DESC LIMIT 101[0m
+  [4;35;1mCart Columns (0.002120)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mCartItem Load (0.000910)[0m   [0;1mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1662) [0m
+  [4;35;1mBook Load (0.003001)[0m   [0mSELECT o.*, COUNT(jt2.book_id) AS count FROM books o, books_tags jt, tags t, books_tags jt2 
+ WHERE jt.book_id=24 AND t.id = jt.tag_id 
+ AND jt2.book_id != jt.book_id 
+ AND jt2.tag_id=jt.tag_id AND o.id = jt2.book_id GROUP BY o.id ORDER BY count DESC LIMIT 5[0m
+  [4;36;1mSQL (0.000890)[0m   [0;1mSELECT jt.book_id AS o_id FROM books_tags jt, tags t 
+ WHERE jt.tag_id = t.id AND ( t.name IN ('Programming','Rails','Ruby'))GROUP BY jt.book_id 
+ HAVING COUNT(jt.book_id)=3[0m
+  [4;35;1mSQL (0.003100)[0m   [0mSELECT t.id AS id, t.name AS name, COUNT(jt.book_id) AS count FROM books_tags jt, tags t 
+ WHERE jt.book_id IN (2,24) 
+ AND t.id = jt.tag_id
+ GROUP BY t.id,t.name,jt.tag_id 
+ ORDER BY count DESC LIMIT 101[0m
+Rendered cart/_cart (0.01792)
+Completed in 0.16483 (6 reqs/sec) | Rendering: 0.03632 (22%) | DB: 0.11540 (70%) | 200 OK [http://localhost/catalog/show/24]
+
+
+Processing CatalogController#show (for 127.0.0.1 at 2006-11-07 19:07:37) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"show", "id"=>"24", "controller"=>"catalog"}
+  [4;36;1mCart Load (0.000806)[0m   [0;1mSELECT * FROM carts WHERE (carts.id = 1662) LIMIT 1[0m
+  [4;35;1mBook Columns (0.002949)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mBook Load (0.001138)[0m   [0;1mSELECT books.id, books.publisher_id, books.published_at, books.isbn, books.page_count, books.price, books.created_at, books.updated_at, books.cover_image, COALESCE(t_title.text, books.title) AS title, t_title.text AS title_not_base , COALESCE(t_blurb.text, books.blurb) AS blurb, t_blurb.text AS blurb_not_base FROM books LEFT OUTER JOIN globalize_translations AS t_title ON t_title.table_name = 'books' AND books.id = t_title.item_id AND t_title.facet = 'title' AND t_title.language_id = 6024 LEFT OUTER JOIN globalize_translations AS t_blurb ON t_blurb.table_name = 'books' AND books.id = t_blurb.item_id AND t_blurb.facet = 'blurb' AND t_blurb.language_id = 6024 WHERE (books.id = '24') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering catalog/show
+  [4;35;1mJoin Table Columns (0.002092)[0m   [0mSHOW FIELDS FROM authors_books[0m
+  [4;36;1mAuthor Load (0.002100)[0m   [0;1mSELECT * FROM authors INNER JOIN authors_books ON authors.id = authors_books.author_id WHERE (authors_books.book_id = 24 ) [0m
+  [4;35;1mAuthor Columns (0.001943)[0m   [0mSHOW FIELDS FROM authors[0m
+  [4;36;1mPublisher Load (0.000692)[0m   [0;1mSELECT * FROM publishers WHERE (publishers.id = 1) LIMIT 1[0m
+  [4;35;1mPublisher Columns (0.001750)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mJoin Table Columns (0.002705)[0m   [0;1mSHOW FIELDS FROM books_tags[0m
+  [4;35;1mTag Load (0.000681)[0m   [0mSELECT * FROM tags INNER JOIN books_tags ON tags.id = books_tags.tag_id WHERE (books_tags.book_id = 24 ) [0m
+  [4;36;1mTag Columns (0.001683)[0m   [0;1mSHOW FIELDS FROM tags[0m
+  [4;35;1mBook Load (0.002924)[0m   [0mSELECT o.*, COUNT(jt2.book_id) AS count FROM books o, books_tags jt, tags t, books_tags jt2 
+ WHERE jt.book_id=24 AND t.id = jt.tag_id 
+ AND jt2.book_id != jt.book_id 
+ AND jt2.tag_id=jt.tag_id AND o.id = jt2.book_id GROUP BY o.id ORDER BY count DESC LIMIT 5[0m
+  [4;36;1mSQL (0.001149)[0m   [0;1mSELECT jt.book_id AS o_id FROM books_tags jt, tags t 
+ WHERE jt.tag_id = t.id AND ( t.name IN ('Programming','Rails','Ruby'))GROUP BY jt.book_id 
+ HAVING COUNT(jt.book_id)=3[0m
+  [4;35;1mSQL (0.002159)[0m   [0mSELECT t.id AS id, t.name AS name, COUNT(jt.book_id) AS count FROM books_tags jt, tags t 
+ WHERE jt.book_id IN (2,24) 
+ AND t.id = jt.tag_id
+ GROUP BY t.id,t.name,jt.tag_id 
+ ORDER BY count DESC LIMIT 101[0m
+  [4;36;1mCart Columns (0.002350)[0m   [0;1mSHOW FIELDS FROM carts[0m
+  [4;35;1mCartItem Load (0.000731)[0m   [0mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1662) [0m
+  [4;36;1mBook Load (0.002959)[0m   [0;1mSELECT o.*, COUNT(jt2.book_id) AS count FROM books o, books_tags jt, tags t, books_tags jt2 
+ WHERE jt.book_id=24 AND t.id = jt.tag_id 
+ AND jt2.book_id != jt.book_id 
+ AND jt2.tag_id=jt.tag_id AND o.id = jt2.book_id GROUP BY o.id ORDER BY count DESC LIMIT 5[0m
+  [4;35;1mSQL (0.001344)[0m   [0mSELECT jt.book_id AS o_id FROM books_tags jt, tags t 
+ WHERE jt.tag_id = t.id AND ( t.name IN ('Programming','Rails','Ruby'))GROUP BY jt.book_id 
+ HAVING COUNT(jt.book_id)=3[0m
+  [4;36;1mSQL (0.002041)[0m   [0;1mSELECT t.id AS id, t.name AS name, COUNT(jt.book_id) AS count FROM books_tags jt, tags t 
+ WHERE jt.book_id IN (2,24) 
+ AND t.id = jt.tag_id
+ GROUP BY t.id,t.name,jt.tag_id 
+ ORDER BY count DESC LIMIT 101[0m
+Rendered cart/_cart (0.10803)
+Completed in 0.17498 (5 reqs/sec) | Rendering: 0.12745 (72%) | DB: 0.03420 (19%) | 200 OK [http://localhost/catalog/show/24]
+
+
+Processing CatalogController#show (for 127.0.0.1 at 2006-11-07 19:08:34) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"show", "id"=>"24", "controller"=>"catalog"}
+  [4;35;1mCart Load (0.000680)[0m   [0mSELECT * FROM carts WHERE (carts.id = 1662) LIMIT 1[0m
+  [4;36;1mBook Columns (0.002983)[0m   [0;1mSHOW FIELDS FROM books[0m
+  [4;35;1mBook Load (0.001129)[0m   [0mSELECT books.id, books.publisher_id, books.published_at, books.isbn, books.page_count, books.price, books.created_at, books.updated_at, books.cover_image, COALESCE(t_title.text, books.title) AS title, t_title.text AS title_not_base , COALESCE(t_blurb.text, books.blurb) AS blurb, t_blurb.text AS blurb_not_base FROM books LEFT OUTER JOIN globalize_translations AS t_title ON t_title.table_name = 'books' AND books.id = t_title.item_id AND t_title.facet = 'title' AND t_title.language_id = 6024 LEFT OUTER JOIN globalize_translations AS t_blurb ON t_blurb.table_name = 'books' AND books.id = t_blurb.item_id AND t_blurb.facet = 'blurb' AND t_blurb.language_id = 6024 WHERE (books.id = '24') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering catalog/show
+  [4;36;1mJoin Table Columns (0.011892)[0m   [0;1mSHOW FIELDS FROM authors_books[0m
+  [4;35;1mAuthor Load (0.001655)[0m   [0mSELECT * FROM authors INNER JOIN authors_books ON authors.id = authors_books.author_id WHERE (authors_books.book_id = 24 ) [0m
+  [4;36;1mAuthor Columns (0.001861)[0m   [0;1mSHOW FIELDS FROM authors[0m
+  [4;35;1mSQL (0.000113)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000603)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'no price available' AND language_id = 6024 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000475)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'no price available', NULL, 'ViewTranslation', NULL, 1, 6024, NULL)[0m
+  [4;36;1mSQL (0.023236)[0m   [0;1mCOMMIT[0m
+  [4;35;1mPublisher Load (0.000677)[0m   [0mSELECT * FROM publishers WHERE (publishers.id = 1) LIMIT 1[0m
+  [4;36;1mPublisher Columns (0.001691)[0m   [0;1mSHOW FIELDS FROM publishers[0m
+  [4;35;1mJoin Table Columns (0.002258)[0m   [0mSHOW FIELDS FROM books_tags[0m
+  [4;36;1mTag Load (0.001042)[0m   [0;1mSELECT * FROM tags INNER JOIN books_tags ON tags.id = books_tags.tag_id WHERE (books_tags.book_id = 24 ) [0m
+  [4;35;1mTag Columns (0.001813)[0m   [0mSHOW FIELDS FROM tags[0m
+  [4;36;1mBook Load (0.003047)[0m   [0;1mSELECT o.*, COUNT(jt2.book_id) AS count FROM books o, books_tags jt, tags t, books_tags jt2 
+ WHERE jt.book_id=24 AND t.id = jt.tag_id 
+ AND jt2.book_id != jt.book_id 
+ AND jt2.tag_id=jt.tag_id AND o.id = jt2.book_id GROUP BY o.id ORDER BY count DESC LIMIT 5[0m
+  [4;35;1mSQL (0.000919)[0m   [0mSELECT jt.book_id AS o_id FROM books_tags jt, tags t 
+ WHERE jt.tag_id = t.id AND ( t.name IN ('Programming','Rails','Ruby'))GROUP BY jt.book_id 
+ HAVING COUNT(jt.book_id)=3[0m
+  [4;36;1mSQL (0.002047)[0m   [0;1mSELECT t.id AS id, t.name AS name, COUNT(jt.book_id) AS count FROM books_tags jt, tags t 
+ WHERE jt.book_id IN (2,24) 
+ AND t.id = jt.tag_id
+ GROUP BY t.id,t.name,jt.tag_id 
+ ORDER BY count DESC LIMIT 101[0m
+  [4;35;1mCart Columns (0.001828)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mCartItem Load (0.000932)[0m   [0;1mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1662) [0m
+  [4;35;1mBook Load (0.003781)[0m   [0mSELECT o.*, COUNT(jt2.book_id) AS count FROM books o, books_tags jt, tags t, books_tags jt2 
+ WHERE jt.book_id=24 AND t.id = jt.tag_id 
+ AND jt2.book_id != jt.book_id 
+ AND jt2.tag_id=jt.tag_id AND o.id = jt2.book_id GROUP BY o.id ORDER BY count DESC LIMIT 5[0m
+  [4;36;1mSQL (0.000737)[0m   [0;1mSELECT jt.book_id AS o_id FROM books_tags jt, tags t 
+ WHERE jt.tag_id = t.id AND ( t.name IN ('Programming','Rails','Ruby'))GROUP BY jt.book_id 
+ HAVING COUNT(jt.book_id)=3[0m
+  [4;35;1mSQL (0.002021)[0m   [0mSELECT t.id AS id, t.name AS name, COUNT(jt.book_id) AS count FROM books_tags jt, tags t 
+ WHERE jt.book_id IN (2,24) 
+ AND t.id = jt.tag_id
+ GROUP BY t.id,t.name,jt.tag_id 
+ ORDER BY count DESC LIMIT 101[0m
+Rendered cart/_cart (0.01506)
+Completed in 0.11989 (8 reqs/sec) | Rendering: 0.03887 (32%) | DB: 0.06742 (56%) | 200 OK [http://localhost/catalog/show/24]
+
+
+Processing CatalogController#show (for 127.0.0.1 at 2006-11-07 19:08:55) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"show", "id"=>"24", "controller"=>"catalog"}
+  [4;36;1mCart Load (0.000569)[0m   [0;1mSELECT * FROM carts WHERE (carts.id = 1662) LIMIT 1[0m
+  [4;35;1mBook Columns (0.002449)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mBook Load (0.000963)[0m   [0;1mSELECT books.id, books.publisher_id, books.published_at, books.isbn, books.page_count, books.price, books.created_at, books.updated_at, books.cover_image, COALESCE(t_title.text, books.title) AS title, t_title.text AS title_not_base , COALESCE(t_blurb.text, books.blurb) AS blurb, t_blurb.text AS blurb_not_base FROM books LEFT OUTER JOIN globalize_translations AS t_title ON t_title.table_name = 'books' AND books.id = t_title.item_id AND t_title.facet = 'title' AND t_title.language_id = 6024 LEFT OUTER JOIN globalize_translations AS t_blurb ON t_blurb.table_name = 'books' AND books.id = t_blurb.item_id AND t_blurb.facet = 'blurb' AND t_blurb.language_id = 6024 WHERE (books.id = '24') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering catalog/show
+  [4;35;1mJoin Table Columns (0.003193)[0m   [0mSHOW FIELDS FROM authors_books[0m
+  [4;36;1mAuthor Load (0.001143)[0m   [0;1mSELECT * FROM authors INNER JOIN authors_books ON authors.id = authors_books.author_id WHERE (authors_books.book_id = 24 ) [0m
+  [4;35;1mAuthor Columns (0.001783)[0m   [0mSHOW FIELDS FROM authors[0m
+  [4;36;1mPublisher Load (0.000723)[0m   [0;1mSELECT * FROM publishers WHERE (publishers.id = 1) LIMIT 1[0m
+  [4;35;1mPublisher Columns (0.001745)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mJoin Table Columns (0.002266)[0m   [0;1mSHOW FIELDS FROM books_tags[0m
+  [4;35;1mTag Load (0.001608)[0m   [0mSELECT * FROM tags INNER JOIN books_tags ON tags.id = books_tags.tag_id WHERE (books_tags.book_id = 24 ) [0m
+  [4;36;1mTag Columns (0.001862)[0m   [0;1mSHOW FIELDS FROM tags[0m
+  [4;35;1mBook Load (0.003210)[0m   [0mSELECT o.*, COUNT(jt2.book_id) AS count FROM books o, books_tags jt, tags t, books_tags jt2 
+ WHERE jt.book_id=24 AND t.id = jt.tag_id 
+ AND jt2.book_id != jt.book_id 
+ AND jt2.tag_id=jt.tag_id AND o.id = jt2.book_id GROUP BY o.id ORDER BY count DESC LIMIT 5[0m
+  [4;36;1mSQL (0.001774)[0m   [0;1mSELECT jt.book_id AS o_id FROM books_tags jt, tags t 
+ WHERE jt.tag_id = t.id AND ( t.name IN ('Programming','Rails','Ruby'))GROUP BY jt.book_id 
+ HAVING COUNT(jt.book_id)=3[0m
+  [4;35;1mSQL (0.002221)[0m   [0mSELECT t.id AS id, t.name AS name, COUNT(jt.book_id) AS count FROM books_tags jt, tags t 
+ WHERE jt.book_id IN (2,24) 
+ AND t.id = jt.tag_id
+ GROUP BY t.id,t.name,jt.tag_id 
+ ORDER BY count DESC LIMIT 101[0m
+  [4;36;1mCart Columns (0.002117)[0m   [0;1mSHOW FIELDS FROM carts[0m
+  [4;35;1mCartItem Load (0.000649)[0m   [0mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1662) [0m
+  [4;36;1mBook Load (0.002822)[0m   [0;1mSELECT o.*, COUNT(jt2.book_id) AS count FROM books o, books_tags jt, tags t, books_tags jt2 
+ WHERE jt.book_id=24 AND t.id = jt.tag_id 
+ AND jt2.book_id != jt.book_id 
+ AND jt2.tag_id=jt.tag_id AND o.id = jt2.book_id GROUP BY o.id ORDER BY count DESC LIMIT 5[0m
+  [4;35;1mSQL (0.000820)[0m   [0mSELECT jt.book_id AS o_id FROM books_tags jt, tags t 
+ WHERE jt.tag_id = t.id AND ( t.name IN ('Programming','Rails','Ruby'))GROUP BY jt.book_id 
+ HAVING COUNT(jt.book_id)=3[0m
+  [4;36;1mSQL (0.002069)[0m   [0;1mSELECT t.id AS id, t.name AS name, COUNT(jt.book_id) AS count FROM books_tags jt, tags t 
+ WHERE jt.book_id IN (2,24) 
+ AND t.id = jt.tag_id
+ GROUP BY t.id,t.name,jt.tag_id 
+ ORDER BY count DESC LIMIT 101[0m
+Rendered cart/_cart (0.01464)
+Completed in 0.07951 (12 reqs/sec) | Rendering: 0.03269 (41%) | DB: 0.03399 (42%) | 200 OK [http://localhost/catalog/show/24]
+
+
+Processing CatalogController#show (for 127.0.0.1 at 2006-11-07 19:24:55) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"show", "id"=>"24", "controller"=>"catalog"}
+  [4;35;1mCart Load (0.000623)[0m   [0mSELECT * FROM carts WHERE (carts.id = 1662) LIMIT 1[0m
+  [4;36;1mBook Columns (0.002865)[0m   [0;1mSHOW FIELDS FROM books[0m
+  [4;35;1mBook Load (0.001976)[0m   [0mSELECT books.id, books.publisher_id, books.published_at, books.isbn, books.page_count, books.price, books.created_at, books.updated_at, books.cover_image, COALESCE(t_title.text, books.title) AS title, t_title.text AS title_not_base , COALESCE(t_blurb.text, books.blurb) AS blurb, t_blurb.text AS blurb_not_base FROM books LEFT OUTER JOIN globalize_translations AS t_title ON t_title.table_name = 'books' AND books.id = t_title.item_id AND t_title.facet = 'title' AND t_title.language_id = 6024 LEFT OUTER JOIN globalize_translations AS t_blurb ON t_blurb.table_name = 'books' AND books.id = t_blurb.item_id AND t_blurb.facet = 'blurb' AND t_blurb.language_id = 6024 WHERE (books.id = '24') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering catalog/show
+  [4;36;1mJoin Table Columns (0.004358)[0m   [0;1mSHOW FIELDS FROM authors_books[0m
+  [4;35;1mAuthor Load (0.000936)[0m   [0mSELECT * FROM authors INNER JOIN authors_books ON authors.id = authors_books.author_id WHERE (authors_books.book_id = 24 ) [0m
+  [4;36;1mAuthor Columns (0.001945)[0m   [0;1mSHOW FIELDS FROM authors[0m
+  [4;35;1mPublisher Load (0.000717)[0m   [0mSELECT * FROM publishers WHERE (publishers.id = 1) LIMIT 1[0m
+  [4;36;1mPublisher Columns (0.001870)[0m   [0;1mSHOW FIELDS FROM publishers[0m
+  [4;35;1mJoin Table Columns (0.002957)[0m   [0mSHOW FIELDS FROM books_tags[0m
+  [4;36;1mTag Load (0.087491)[0m   [0;1mSELECT * FROM tags INNER JOIN books_tags ON tags.id = books_tags.tag_id WHERE (books_tags.book_id = 24 ) [0m
+  [4;35;1mTag Columns (0.002124)[0m   [0mSHOW FIELDS FROM tags[0m
+  [4;36;1mBook Load (0.002778)[0m   [0;1mSELECT o.*, COUNT(jt2.book_id) AS count FROM books o, books_tags jt, tags t, books_tags jt2 
+ WHERE jt.book_id=24 AND t.id = jt.tag_id 
+ AND jt2.book_id != jt.book_id 
+ AND jt2.tag_id=jt.tag_id AND o.id = jt2.book_id GROUP BY o.id ORDER BY count DESC LIMIT 5[0m
+  [4;35;1mSQL (0.000746)[0m   [0mSELECT jt.book_id AS o_id FROM books_tags jt, tags t 
+ WHERE jt.tag_id = t.id AND ( t.name IN ('Programming','Rails','Ruby'))GROUP BY jt.book_id 
+ HAVING COUNT(jt.book_id)=3[0m
+  [4;36;1mSQL (0.001947)[0m   [0;1mSELECT t.id AS id, t.name AS name, COUNT(jt.book_id) AS count FROM books_tags jt, tags t 
+ WHERE jt.book_id IN (2,24) 
+ AND t.id = jt.tag_id
+ GROUP BY t.id,t.name,jt.tag_id 
+ ORDER BY count DESC LIMIT 101[0m
+  [4;35;1mCart Columns (0.001952)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mCartItem Load (0.000595)[0m   [0;1mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1662) [0m
+  [4;35;1mBook Load (0.002685)[0m   [0mSELECT o.*, COUNT(jt2.book_id) AS count FROM books o, books_tags jt, tags t, books_tags jt2 
+ WHERE jt.book_id=24 AND t.id = jt.tag_id 
+ AND jt2.book_id != jt.book_id 
+ AND jt2.tag_id=jt.tag_id AND o.id = jt2.book_id GROUP BY o.id ORDER BY count DESC LIMIT 5[0m
+  [4;36;1mSQL (0.000758)[0m   [0;1mSELECT jt.book_id AS o_id FROM books_tags jt, tags t 
+ WHERE jt.tag_id = t.id AND ( t.name IN ('Programming','Rails','Ruby'))GROUP BY jt.book_id 
+ HAVING COUNT(jt.book_id)=3[0m
+  [4;35;1mSQL (0.001931)[0m   [0mSELECT t.id AS id, t.name AS name, COUNT(jt.book_id) AS count FROM books_tags jt, tags t 
+ WHERE jt.book_id IN (2,24) 
+ AND t.id = jt.tag_id
+ GROUP BY t.id,t.name,jt.tag_id 
+ ORDER BY count DESC LIMIT 101[0m
+Rendered cart/_cart (0.01336)
+Completed in 0.16508 (6 reqs/sec) | Rendering: 0.03037 (18%) | DB: 0.12125 (73%) | 200 OK [http://localhost/catalog/show/24]
+
+
+Processing CatalogController#show (for 127.0.0.1 at 2006-11-07 19:25:33) [GET]
+  Session ID: 935a13602f676b4b110c1803219b2acf
+  Parameters: {"action"=>"show", "id"=>"17", "controller"=>"catalog"}
+  [4;36;1mCart Load (0.000737)[0m   [0;1mSELECT * FROM carts WHERE (carts.id = 1662) LIMIT 1[0m
+  [4;35;1mBook Columns (0.002944)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mBook Load (0.001243)[0m   [0;1mSELECT books.id, books.publisher_id, books.published_at, books.isbn, books.page_count, books.price, books.created_at, books.updated_at, books.cover_image, COALESCE(t_title.text, books.title) AS title, t_title.text AS title_not_base , COALESCE(t_blurb.text, books.blurb) AS blurb, t_blurb.text AS blurb_not_base FROM books LEFT OUTER JOIN globalize_translations AS t_title ON t_title.table_name = 'books' AND books.id = t_title.item_id AND t_title.facet = 'title' AND t_title.language_id = 6024 LEFT OUTER JOIN globalize_translations AS t_blurb ON t_blurb.table_name = 'books' AND books.id = t_blurb.item_id AND t_blurb.facet = 'blurb' AND t_blurb.language_id = 6024 WHERE (books.id = '17') LIMIT 1[0m
+Rendering  within layouts/application
+Rendering catalog/show
+  [4;35;1mJoin Table Columns (0.002109)[0m   [0mSHOW FIELDS FROM authors_books[0m
+  [4;36;1mAuthor Load (0.001115)[0m   [0;1mSELECT * FROM authors INNER JOIN authors_books ON authors.id = authors_books.author_id WHERE (authors_books.book_id = 17 ) [0m
+  [4;35;1mAuthor Columns (0.001836)[0m   [0mSHOW FIELDS FROM authors[0m
+  [4;36;1mPublisher Load (0.000866)[0m   [0;1mSELECT * FROM publishers WHERE (publishers.id = 4) LIMIT 1[0m
+  [4;35;1mPublisher Columns (0.002186)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mJoin Table Columns (0.002024)[0m   [0;1mSHOW FIELDS FROM books_tags[0m
+  [4;35;1mTag Load (0.000843)[0m   [0mSELECT * FROM tags INNER JOIN books_tags ON tags.id = books_tags.tag_id WHERE (books_tags.book_id = 17 ) [0m
+  [4;36;1mCart Columns (0.001955)[0m   [0;1mSHOW FIELDS FROM carts[0m
+  [4;35;1mCartItem Load (0.000631)[0m   [0mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1662) [0m
+Rendered cart/_cart (0.00711)
+Completed in 0.05902 (16 reqs/sec) | Rendering: 0.02499 (42%) | DB: 0.01849 (31%) | 200 OK [http://localhost/catalog/show/17]
+
+
+Processing CatalogController#show (for 127.0.0.1 at 2006-11-07 23:31:47) [GET]
+  Session ID: 45525cc8c5038f0b34abc45103033349
+  Parameters: {"action"=>"show", "id"=>"17", "controller"=>"catalog"}
+  [4;36;1mGlobalize::Language Load (0.039480)[0m   [0;1mSELECT * FROM globalize_languages WHERE (globalize_languages.`iso_639_1` = 'en' ) LIMIT 1[0m
+  [4;35;1mCart Columns (0.002043)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mSQL (0.000424)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000250)[0m   [0mINSERT INTO carts () VALUES()[0m
+  [4;36;1mSQL (0.000091)[0m   [0;1mCOMMIT[0m
+  [4;35;1mBook Load (0.044388)[0m   [0mSELECT * FROM books WHERE (books.id = '17') LIMIT 1[0m
+  [4;36;1mBook Columns (0.002926)[0m   [0;1mSHOW FIELDS FROM books[0m
+Rendering  within layouts/application
+Rendering catalog/show
+  [4;35;1mJoin Table Columns (0.014999)[0m   [0mSHOW FIELDS FROM authors_books[0m
+  [4;36;1mAuthor Load (0.006507)[0m   [0;1mSELECT * FROM authors INNER JOIN authors_books ON authors.id = authors_books.author_id WHERE (authors_books.book_id = 17 ) [0m
+  [4;35;1mAuthor Columns (0.002311)[0m   [0mSHOW FIELDS FROM authors[0m
+  [4;36;1mPublisher Load (0.027157)[0m   [0;1mSELECT * FROM publishers WHERE (publishers.id = 4) LIMIT 1[0m
+  [4;35;1mPublisher Columns (0.001940)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mJoin Table Columns (0.003762)[0m   [0;1mSHOW FIELDS FROM books_tags[0m
+  [4;35;1mTag Load (0.002579)[0m   [0mSELECT * FROM tags INNER JOIN books_tags ON tags.id = books_tags.tag_id WHERE (books_tags.book_id = 17 ) [0m
+  [4;36;1mCartItem Load (0.002970)[0m   [0;1mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1663) [0m
+Rendered cart/_cart (0.00628)
+
+
+ArgumentError (wrong number of arguments (1 for 0)):
+    /app/controllers/application.rb:11:in `headers'
+    /app/controllers/application.rb:11:in `set_charset'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:399:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:394:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:389:in `after_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:369:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/rails.rb:83:in `process'
+    /opt/local/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/rails.rb:81:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:585:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:584:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:691:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:691:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel.rb:678:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/configurator.rb:271:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/configurator.rb:270:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/bin/mongrel_rails:125:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/lib/mongrel/command.rb:211:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-0.3.14/bin/mongrel_rails:235
+    /opt/local/bin/mongrel_rails:18
+
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing CatalogController#show (for 127.0.0.1 at 2006-11-07 23:32:14) [GET]
+  Session ID: 45525cc8c5038f0b34abc45103033349
+  Parameters: {"action"=>"show", "id"=>"17", "controller"=>"catalog"}
+  [4;35;1mCart Load (0.000579)[0m   [0mSELECT * FROM carts WHERE (carts.id = 1663) LIMIT 1[0m
+  [4;36;1mBook Load (0.000689)[0m   [0;1mSELECT * FROM books WHERE (books.id = '17') LIMIT 1[0m
+  [4;35;1mBook Columns (0.002206)[0m   [0mSHOW FIELDS FROM books[0m
+Rendering  within layouts/application
+Rendering catalog/show
+  [4;36;1mJoin Table Columns (0.016548)[0m   [0;1mSHOW FIELDS FROM authors_books[0m
+  [4;35;1mAuthor Load (0.002394)[0m   [0mSELECT * FROM authors INNER JOIN authors_books ON authors.id = authors_books.author_id WHERE (authors_books.book_id = 17 ) [0m
+  [4;36;1mAuthor Columns (0.001865)[0m   [0;1mSHOW FIELDS FROM authors[0m
+  [4;35;1mPublisher Load (0.000656)[0m   [0mSELECT * FROM publishers WHERE (publishers.id = 4) LIMIT 1[0m
+  [4;36;1mPublisher Columns (0.001797)[0m   [0;1mSHOW FIELDS FROM publishers[0m
+  [4;35;1mJoin Table Columns (0.003953)[0m   [0mSHOW FIELDS FROM books_tags[0m
+  [4;36;1mTag Load (0.000728)[0m   [0;1mSELECT * FROM tags INNER JOIN books_tags ON tags.id = books_tags.tag_id WHERE (books_tags.book_id = 17 ) [0m
+  [4;35;1mCart Columns (0.002223)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mCartItem Load (0.085750)[0m   [0;1mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1663) [0m
+Rendered cart/_cart (0.09228)
+Completed in 0.15649 (6 reqs/sec) | Rendering: 0.02530 (16%) | DB: 0.11939 (76%) | 200 OK [http://localhost/catalog/show/17]
+
+
+Processing CatalogController#show (for 127.0.0.1 at 2006-11-07 23:39:09) [GET]
+  Session ID: 45525cc8c5038f0b34abc45103033349
+  Parameters: {"action"=>"show", "id"=>"17", "controller"=>"catalog"}
+  [4;35;1mCart Load (0.020615)[0m   [0mSELECT * FROM carts WHERE (carts.id = 1663) LIMIT 1[0m
+  [4;36;1mBook Load (0.023836)[0m   [0;1mSELECT * FROM books WHERE (books.id = '17') LIMIT 1[0m
+  [4;35;1mBook Columns (0.002888)[0m   [0mSHOW FIELDS FROM books[0m
+Rendering  within layouts/application
+Rendering catalog/show
+  [4;36;1mJoin Table Columns (0.002143)[0m   [0;1mSHOW FIELDS FROM authors_books[0m
+  [4;35;1mAuthor Load (0.030981)[0m   [0mSELECT * FROM authors INNER JOIN authors_books ON authors.id = authors_books.author_id WHERE (authors_books.book_id = 17 ) [0m
+  [4;36;1mAuthor Columns (0.001942)[0m   [0;1mSHOW FIELDS FROM authors[0m
+  [4;35;1mPublisher Load (0.001080)[0m   [0mSELECT * FROM publishers WHERE (publishers.id = 4) LIMIT 1[0m
+  [4;36;1mPublisher Columns (0.001753)[0m   [0;1mSHOW FIELDS FROM publishers[0m
+  [4;35;1mJoin Table Columns (0.002101)[0m   [0mSHOW FIELDS FROM books_tags[0m
+  [4;36;1mTag Load (0.015400)[0m   [0;1mSELECT * FROM tags INNER JOIN books_tags ON tags.id = books_tags.tag_id WHERE (books_tags.book_id = 17 ) [0m
+  [4;35;1mCart Columns (0.003426)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mCartItem Load (0.001643)[0m   [0;1mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1663) [0m
+Rendered cart/_cart (0.00993)
+Completed in 0.20456 (4 reqs/sec) | Rendering: 0.05604 (27%) | DB: 0.10781 (52%) | 200 OK [http://localhost/catalog/show/17]
+
+
+Processing CatalogController#index (for 127.0.0.1 at 2006-11-07 23:39:13) [GET]
+  Session ID: 45525cc8c5038f0b34abc45103033349
+  Parameters: {"action"=>"index", "controller"=>"catalog"}
+  [4;35;1mCart Load (0.000347)[0m   [0mSELECT * FROM carts WHERE (carts.id = 1663) LIMIT 1[0m
+  [4;36;1mBook Count (0.002077)[0m   [0;1mSELECT COUNT(DISTINCT books.id) FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id [0m
+  [4;35;1mBook Columns (0.002712)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mAuthor Columns (0.002170)[0m   [0;1mSHOW FIELDS FROM authors[0m
+  [4;35;1mPublisher Columns (0.002183)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mBook Load IDs For Limited Eager Loading (0.000285)[0m   [0;1mSELECT id FROM books ORDER BY books.id desc LIMIT 0, 10[0m
+  [4;35;1mBook Load Including Associations (0.003620)[0m   [0mSELECT books.`id` AS t0_r0, books.`title` AS t0_r1, books.`publisher_id` AS t0_r2, books.`published_at` AS t0_r3, books.`isbn` AS t0_r4, books.`blurb` AS t0_r5, books.`page_count` AS t0_r6, books.`price` AS t0_r7, books.`created_at` AS t0_r8, books.`updated_at` AS t0_r9, books.`cover_image` AS t0_r10, authors.`id` AS t1_r0, authors.`first_name` AS t1_r1, authors.`last_name` AS t1_r2, publishers.`id` AS t2_r0, publishers.`name` AS t2_r1 FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id WHERE books.id IN ('24', '23', '22', '17', '16', '15', '14', '13', '12', '11') ORDER BY books.id desc [0m
+Rendering  within layouts/application
+Rendering catalog/index
+  [4;36;1mSQL (0.000163)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.027773)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'new' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.027094)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'new', NULL, 'ViewTranslation', NULL, 1, 1819, NULL)[0m
+  [4;35;1mSQL (0.014155)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.001219)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000519)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000515)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Publisher', NULL, 'ViewTranslation', NULL, 1, 1819, NULL)[0m
+  [4;35;1mSQL (0.005512)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000155)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000480)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'A Book' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000400)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'A Book', NULL, 'ViewTranslation', NULL, 1, 1819, NULL)[0m
+  [4;35;1mSQL (0.007567)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000146)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000535)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000169)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000120)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000457)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'DOM Scripting' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000365)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'DOM Scripting', NULL, 'ViewTranslation', NULL, 1, 1819, NULL)[0m
+  [4;36;1mSQL (0.007565)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000158)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000589)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000292)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000170)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000468)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'The Idiot' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000387)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'The Idiot', NULL, 'ViewTranslation', NULL, 1, 1819, NULL)[0m
+  [4;35;1mSQL (0.003923)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000166)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000564)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000127)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000161)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000481)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Crime and Punishment' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000350)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Crime and Punishment', NULL, 'ViewTranslation', NULL, 1, 1819, NULL)[0m
+  [4;36;1mSQL (0.004198)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000133)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000514)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000122)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000151)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000501)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'War and Peace' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000390)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'War and Peace', NULL, 'ViewTranslation', NULL, 1, 1819, NULL)[0m
+  [4;35;1mSQL (0.004303)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000126)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000542)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000104)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000204)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000488)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Anna Karenina' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000346)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Anna Karenina', NULL, 'ViewTranslation', NULL, 1, 1819, NULL)[0m
+  [4;36;1mSQL (0.004167)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000160)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000545)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000143)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000149)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000492)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Tom Sawyer' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000390)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Tom Sawyer', NULL, 'ViewTranslation', NULL, 1, 1819, NULL)[0m
+  [4;35;1mSQL (0.003803)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000131)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000526)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000101)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000446)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000478)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Adventures of Huckleberry Finn' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000390)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Adventures of Huckleberry Finn', NULL, 'ViewTranslation', NULL, 1, 1819, NULL)[0m
+  [4;36;1mSQL (0.004185)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000160)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000548)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000110)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000214)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000488)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'The Murders in the Rue Morgue' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000368)[0m   [0;1mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'The Murders in the Rue Morgue', NULL, 'ViewTranslation', NULL, 1, 1819, NULL)[0m
+  [4;35;1mSQL (0.004951)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000504)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000092)[0m   [0;1mCOMMIT[0m
+Rendered catalog/_books (0.25524)
+  [4;35;1mSQL (0.000533)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000711)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Next page' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000383)[0m   [0mINSERT INTO globalize_translations (`item_id`, `pluralization_index`, `tr_key`, `text`, `type`, `facet`, `built_in`, `language_id`, `table_name`) VALUES(NULL, 1, 'Next page', NULL, 'ViewTranslation', NULL, 1, 1819, NULL)[0m
+  [4;36;1mSQL (0.003172)[0m   [0;1mCOMMIT[0m
+  [4;35;1mCart Columns (0.002451)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mCartItem Load (0.000880)[0m   [0;1mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1663) [0m
+Rendered cart/_cart (0.00806)
+Completed in 0.32483 (3 reqs/sec) | Rendering: 0.14251 (43%) | DB: 0.16007 (49%) | 200 OK [http://localhost/]
+
+
+Processing CatalogController#index (for 127.0.0.1 at 2006-11-07 23:39:52) [GET]
+  Session ID: 45525cc8c5038f0b34abc45103033349
+  Parameters: {"action"=>"index", "controller"=>"catalog"}
+  [4;35;1mCart Load (0.000343)[0m   [0mSELECT * FROM carts WHERE (carts.id = 1663) LIMIT 1[0m
+  [4;36;1mBook Count (0.001810)[0m   [0;1mSELECT COUNT(DISTINCT books.id) FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id [0m
+  [4;35;1mBook Columns (0.002519)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mAuthor Columns (0.041725)[0m   [0;1mSHOW FIELDS FROM authors[0m
+  [4;35;1mPublisher Columns (0.001644)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mBook Load IDs For Limited Eager Loading (0.000291)[0m   [0;1mSELECT id FROM books ORDER BY books.id desc LIMIT 0, 10[0m
+  [4;35;1mBook Load Including Associations (0.003724)[0m   [0mSELECT books.`id` AS t0_r0, books.`title` AS t0_r1, books.`publisher_id` AS t0_r2, books.`published_at` AS t0_r3, books.`isbn` AS t0_r4, books.`blurb` AS t0_r5, books.`page_count` AS t0_r6, books.`price` AS t0_r7, books.`created_at` AS t0_r8, books.`updated_at` AS t0_r9, books.`cover_image` AS t0_r10, authors.`id` AS t1_r0, authors.`first_name` AS t1_r1, authors.`last_name` AS t1_r2, publishers.`id` AS t2_r0, publishers.`name` AS t2_r1 FROM books LEFT OUTER JOIN authors_books ON authors_books.book_id = books.id LEFT OUTER JOIN authors ON authors.id = authors_books.author_id LEFT OUTER JOIN publishers ON publishers.id = books.publisher_id WHERE books.id IN ('24', '23', '22', '17', '16', '15', '14', '13', '12', '11') ORDER BY books.id desc [0m
+Rendering  within layouts/application
+Rendering catalog/index
+  [4;36;1mSQL (0.000189)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000768)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'new' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000160)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000121)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000495)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000101)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000104)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000424)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'A Book' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000123)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000116)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000460)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000122)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000104)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000645)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'DOM Scripting' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000193)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000153)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000519)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000106)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000101)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000479)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'The Idiot' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000101)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000167)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000635)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000145)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000109)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000539)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Crime and Punishment' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000101)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000097)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000457)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000107)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000127)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000470)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'War and Peace' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000098)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000102)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000461)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000099)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000111)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000428)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Anna Karenina' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000144)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000105)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000541)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000137)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000248)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000617)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Tom Sawyer' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000159)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000135)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000468)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000099)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000101)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000446)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Adventures of Huckleberry Finn' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000099)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000098)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000540)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000122)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000109)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000472)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'The Murders in the Rue Morgue' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000096)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000102)[0m   [0mBEGIN[0m
+  [4;36;1mGlobalize::ViewTranslation Load (0.000405)[0m   [0;1mSELECT * FROM globalize_translations WHERE (tr_key = 'Publisher' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.000096)[0m   [0mCOMMIT[0m
+Rendered catalog/_books (0.06961)
+  [4;36;1mSQL (0.000124)[0m   [0;1mBEGIN[0m
+  [4;35;1mGlobalize::ViewTranslation Load (0.000512)[0m   [0mSELECT * FROM globalize_translations WHERE (tr_key = 'Next page' AND language_id = 1819 AND pluralization_index = 1) AND ( (globalize_translations.`type` = 'ViewTranslation' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000107)[0m   [0;1mCOMMIT[0m
+  [4;35;1mCart Columns (0.002306)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mCartItem Load (0.001382)[0m   [0;1mSELECT * FROM cart_items WHERE (cart_items.cart_id = 1663) [0m
+Rendered cart/_cart (0.00809)
+Completed in 0.16685 (5 reqs/sec) | Rendering: 0.07267 (43%) | DB: 0.07166 (42%) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.142211)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.246772)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.038094)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.064409)[0m   [0mSHOW FIELDS FROM authors[0m
+  [4;36;1mSQL (0.000713)[0m   [0;1mSHOW KEYS FROM authors[0m
+  [4;35;1mSQL (0.059833)[0m   [0mSHOW FIELDS FROM authors_books[0m
+  [4;36;1mSQL (0.087928)[0m   [0;1mSHOW KEYS FROM authors_books[0m
+  [4;35;1mSQL (0.037190)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mSQL (0.000707)[0m   [0;1mSHOW KEYS FROM books[0m
+  [4;35;1mSQL (0.004494)[0m   [0mSHOW FIELDS FROM books_tags[0m
+  [4;36;1mSQL (0.000722)[0m   [0;1mSHOW KEYS FROM books_tags[0m
+  [4;35;1mSQL (0.004232)[0m   [0mSHOW FIELDS FROM cart_items[0m
+  [4;36;1mSQL (0.008177)[0m   [0;1mSHOW KEYS FROM cart_items[0m
+  [4;35;1mSQL (0.004711)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mSQL (0.000779)[0m   [0;1mSHOW KEYS FROM carts[0m
+  [4;35;1mSQL (0.005588)[0m   [0mSHOW FIELDS FROM forum_posts[0m
+  [4;36;1mSQL (0.000437)[0m   [0;1mSHOW KEYS FROM forum_posts[0m
+  [4;35;1mSQL (0.023480)[0m   [0mSHOW FIELDS FROM globalize_countries[0m
+  [4;36;1mSQL (0.034627)[0m   [0;1mSHOW KEYS FROM globalize_countries[0m
+  [4;35;1mSQL (0.016658)[0m   [0mSHOW FIELDS FROM globalize_languages[0m
+  [4;36;1mSQL (0.081293)[0m   [0;1mSHOW KEYS FROM globalize_languages[0m
+  [4;35;1mSQL (0.005062)[0m   [0mSHOW FIELDS FROM globalize_translations[0m
+  [4;36;1mSQL (0.146609)[0m   [0;1mSHOW KEYS FROM globalize_translations[0m
+  [4;35;1mSQL (0.021256)[0m   [0mSHOW FIELDS FROM order_items[0m
+  [4;36;1mSQL (0.000628)[0m   [0;1mSHOW KEYS FROM order_items[0m
+  [4;35;1mSQL (0.014673)[0m   [0mSHOW FIELDS FROM orders[0m
+  [4;36;1mSQL (0.000748)[0m   [0;1mSHOW KEYS FROM orders[0m
+  [4;35;1mSQL (0.017672)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mSQL (0.000745)[0m   [0;1mSHOW KEYS FROM publishers[0m
+  [4;35;1mSQL (0.004056)[0m   [0mSHOW FIELDS FROM tags[0m
+  [4;36;1mSQL (0.000768)[0m   [0;1mSHOW KEYS FROM tags[0m
+  [4;35;1mSQL (0.015732)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mSQL (0.000836)[0m   [0;1mSHOW KEYS FROM users[0m
+  [4;35;1mSQL (0.000201)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.110454)[0m   [0;1mDROP TABLE authors[0m
+  [4;35;1mSQL (0.545959)[0m   [0mCREATE TABLE authors (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.168729)[0m   [0;1mDROP TABLE authors_books[0m
+  [4;35;1mSQL (0.121088)[0m   [0mCREATE TABLE authors_books (`author_id` int(11) DEFAULT 0 NOT NULL, `book_id` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.012979)[0m   [0;1mDROP TABLE books[0m
+  [4;35;1mSQL (0.004210)[0m   [0mCREATE TABLE books (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT '' NOT NULL, `publisher_id` int(11) DEFAULT 0 NOT NULL, `published_at` datetime, `isbn` varchar(13), `blurb` text, `page_count` int(11), `price` float, `created_at` datetime, `updated_at` datetime, `cover_image` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001468)[0m   [0;1mDROP TABLE books_tags[0m
+  [4;35;1mSQL (0.003308)[0m   [0mCREATE TABLE books_tags (`tag_id` int(11) DEFAULT 0 NOT NULL, `book_id` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.040986)[0m   [0;1mCREATE INDEX `fk_tb_tags` ON books_tags (`tag_id`)[0m
+  [4;35;1mSQL (0.009613)[0m   [0mCREATE INDEX `fk_tb_books` ON books_tags (`book_id`)[0m
+  [4;36;1mSQL (0.001440)[0m   [0;1mDROP TABLE cart_items[0m
+  [4;35;1mSQL (0.002776)[0m   [0mCREATE TABLE cart_items (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_id` int(11), `cart_id` int(11), `price` float, `amount` int(11), `created_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001544)[0m   [0;1mDROP TABLE carts[0m
+  [4;35;1mSQL (0.003116)[0m   [0mCREATE TABLE carts (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.019988)[0m   [0;1mDROP TABLE forum_posts[0m
+  [4;35;1mSQL (0.003440)[0m   [0mCREATE TABLE forum_posts (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(50) DEFAULT '' NOT NULL, `subject` varchar(255) DEFAULT '' NOT NULL, `body` text, `root_id` int(11) DEFAULT 0 NOT NULL, `parent_id` int(11) DEFAULT 0 NOT NULL, `lft` int(11) DEFAULT 0 NOT NULL, `rgt` int(11) DEFAULT 0 NOT NULL, `depth` int(11) DEFAULT 0 NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.016240)[0m   [0;1mDROP TABLE globalize_countries[0m
+  [4;35;1mSQL (0.003638)[0m   [0mCREATE TABLE globalize_countries (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `code` varchar(2), `english_name` varchar(255), `date_format` varchar(255), `currency_format` varchar(255), `currency_code` varchar(3), `thousands_sep` varchar(2), `decimal_sep` varchar(2), `currency_decimal_sep` varchar(2), `number_grouping_scheme` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.044896)[0m   [0;1mCREATE INDEX `globalize_countries_code_index` ON globalize_countries (`code`)[0m
+  [4;35;1mSQL (0.029457)[0m   [0mDROP TABLE globalize_languages[0m
+  [4;36;1mSQL (0.032015)[0m   [0;1mCREATE TABLE globalize_languages (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `iso_639_1` varchar(2), `iso_639_2` varchar(3), `iso_639_3` varchar(3), `rfc_3066` varchar(255), `english_name` varchar(255), `english_name_locale` varchar(255), `english_name_modifier` varchar(255), `native_name` varchar(255), `native_name_locale` varchar(255), `native_name_modifier` varchar(255), `macro_language` tinyint(1), `direction` varchar(255), `pluralization` varchar(255), `scope` varchar(1)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.022240)[0m   [0mCREATE INDEX `globalize_languages_iso_639_1_index` ON globalize_languages (`iso_639_1`)[0m
+  [4;36;1mSQL (0.026059)[0m   [0;1mCREATE INDEX `globalize_languages_iso_639_2_index` ON globalize_languages (`iso_639_2`)[0m
+  [4;35;1mSQL (0.026376)[0m   [0mCREATE INDEX `globalize_languages_iso_639_3_index` ON globalize_languages (`iso_639_3`)[0m
+  [4;36;1mSQL (0.033341)[0m   [0;1mCREATE INDEX `globalize_languages_rfc_3066_index` ON globalize_languages (`rfc_3066`)[0m
+  [4;35;1mSQL (0.062369)[0m   [0mDROP TABLE globalize_translations[0m
+  [4;36;1mSQL (0.019003)[0m   [0;1mCREATE TABLE globalize_translations (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255), `tr_key` varchar(255), `table_name` varchar(255), `item_id` int(11), `facet` varchar(255), `built_in` tinyint(1) DEFAULT 1, `language_id` int(11), `pluralization_index` int(11), `text` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.010051)[0m   [0mCREATE INDEX `globalize_translations_tr_key_index` ON globalize_translations (`tr_key`, `language_id`)[0m
+  [4;36;1mSQL (0.030588)[0m   [0;1mCREATE INDEX `globalize_translations_table_name_index` ON globalize_translations (`table_name`, `item_id`, `language_id`)[0m
+  [4;35;1mSQL (0.001422)[0m   [0mDROP TABLE order_items[0m
+  [4;36;1mSQL (0.003002)[0m   [0;1mCREATE TABLE order_items (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_id` int(11), `order_id` int(11), `price` float, `amount` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001236)[0m   [0mDROP TABLE orders[0m
+  [4;36;1mSQL (0.003296)[0m   [0;1mCREATE TABLE orders (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255), `phone_number` varchar(255), `ship_to_first_name` varchar(255), `ship_to_last_name` varchar(255), `ship_to_address` varchar(255), `ship_to_city` varchar(255), `ship_to_postal_code` varchar(255), `ship_to_country` varchar(255), `customer_ip` varchar(255), `status` varchar(255) DEFAULT 'open', `error_message` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.011113)[0m   [0mDROP TABLE publishers[0m
+  [4;36;1mSQL (0.017091)[0m   [0;1mCREATE TABLE publishers (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001463)[0m   [0mDROP TABLE tags[0m
+  [4;36;1mSQL (0.003872)[0m   [0;1mCREATE TABLE tags (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001317)[0m   [0mDROP TABLE users[0m
+  [4;36;1mSQL (0.019350)[0m   [0;1mCREATE TABLE users (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255), `email` varchar(255), `crypted_password` varchar(40), `salt` varchar(40), `created_at` datetime, `updated_at` datetime, `remember_token` varchar(255), `remember_token_expires_at` datetime, `pw_reset_code` varchar(40)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.003623)[0m   [0;1mSHOW FIELDS FROM schema_info[0m
+  [4;35;1mSQL (0.035164)[0m   [0mUPDATE schema_info SET version = 12[0m
+  [4;36;1mSQL (0.000157)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000548)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000639)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003163)[0m   [0mSHOW FIELDS FROM authors[0m
+  [4;36;1mSQL (0.002093)[0m   [0;1mSHOW KEYS FROM authors[0m
+  [4;35;1mSQL (0.002182)[0m   [0mSHOW FIELDS FROM authors_books[0m
+  [4;36;1mSQL (0.000680)[0m   [0;1mSHOW KEYS FROM authors_books[0m
+  [4;35;1mSQL (0.002672)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mSQL (0.001087)[0m   [0;1mSHOW KEYS FROM books[0m
+  [4;35;1mSQL (0.002119)[0m   [0mSHOW FIELDS FROM books_tags[0m
+  [4;36;1mSQL (0.000860)[0m   [0;1mSHOW KEYS FROM books_tags[0m
+  [4;35;1mSQL (0.002299)[0m   [0mSHOW FIELDS FROM cart_items[0m
+  [4;36;1mSQL (0.000552)[0m   [0;1mSHOW KEYS FROM cart_items[0m
+  [4;35;1mSQL (0.001875)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mSQL (0.000608)[0m   [0;1mSHOW KEYS FROM carts[0m
+  [4;35;1mSQL (0.002672)[0m   [0mSHOW FIELDS FROM forum_posts[0m
+  [4;36;1mSQL (0.000405)[0m   [0;1mSHOW KEYS FROM forum_posts[0m
+  [4;35;1mSQL (0.002597)[0m   [0mSHOW FIELDS FROM globalize_countries[0m
+  [4;36;1mSQL (0.001322)[0m   [0;1mSHOW KEYS FROM globalize_countries[0m
+  [4;35;1mSQL (0.002878)[0m   [0mSHOW FIELDS FROM globalize_languages[0m
+  [4;36;1mSQL (0.002131)[0m   [0;1mSHOW KEYS FROM globalize_languages[0m
+  [4;35;1mSQL (0.002536)[0m   [0mSHOW FIELDS FROM globalize_translations[0m
+  [4;36;1mSQL (0.086687)[0m   [0;1mSHOW KEYS FROM globalize_translations[0m
+  [4;35;1mSQL (0.002935)[0m   [0mSHOW FIELDS FROM order_items[0m
+  [4;36;1mSQL (0.000801)[0m   [0;1mSHOW KEYS FROM order_items[0m
+  [4;35;1mSQL (0.003076)[0m   [0mSHOW FIELDS FROM orders[0m
+  [4;36;1mSQL (0.000430)[0m   [0;1mSHOW KEYS FROM orders[0m
+  [4;35;1mSQL (0.002005)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mSQL (0.000583)[0m   [0;1mSHOW KEYS FROM publishers[0m
+  [4;35;1mSQL (0.001921)[0m   [0mSHOW FIELDS FROM tags[0m
+  [4;36;1mSQL (0.000599)[0m   [0;1mSHOW KEYS FROM tags[0m
+  [4;35;1mSQL (0.002586)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mSQL (0.000643)[0m   [0;1mSHOW KEYS FROM users[0m
+  [4;35;1mSQL (0.000155)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.046684)[0m   [0;1mDROP TABLE authors[0m
+  [4;35;1mSQL (0.071280)[0m   [0mCREATE TABLE authors (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002290)[0m   [0;1mDROP TABLE authors_books[0m
+  [4;35;1mSQL (0.003565)[0m   [0mCREATE TABLE authors_books (`author_id` int(11) DEFAULT 0 NOT NULL, `book_id` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002411)[0m   [0;1mDROP TABLE books[0m
+  [4;35;1mSQL (0.012978)[0m   [0mCREATE TABLE books (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT '' NOT NULL, `publisher_id` int(11) DEFAULT 0 NOT NULL, `published_at` datetime, `isbn` varchar(13), `blurb` text, `page_count` int(11), `price` float, `created_at` datetime, `updated_at` datetime, `cover_image` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002482)[0m   [0;1mDROP TABLE books_tags[0m
+  [4;35;1mSQL (0.004307)[0m   [0mCREATE TABLE books_tags (`tag_id` int(11) DEFAULT 0 NOT NULL, `book_id` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.018649)[0m   [0;1mCREATE INDEX `fk_tb_tags` ON books_tags (`tag_id`)[0m
+  [4;35;1mSQL (0.047615)[0m   [0mCREATE INDEX `fk_tb_books` ON books_tags (`book_id`)[0m
+  [4;36;1mSQL (0.002262)[0m   [0;1mDROP TABLE cart_items[0m
+  [4;35;1mSQL (0.002767)[0m   [0mCREATE TABLE cart_items (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_id` int(11), `cart_id` int(11), `price` float, `amount` int(11), `created_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002399)[0m   [0;1mDROP TABLE carts[0m
+  [4;35;1mSQL (0.002583)[0m   [0mCREATE TABLE carts (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002153)[0m   [0;1mDROP TABLE forum_posts[0m
+  [4;35;1mSQL (0.003570)[0m   [0mCREATE TABLE forum_posts (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(50) DEFAULT '' NOT NULL, `subject` varchar(255) DEFAULT '' NOT NULL, `body` text, `root_id` int(11) DEFAULT 0 NOT NULL, `parent_id` int(11) DEFAULT 0 NOT NULL, `lft` int(11) DEFAULT 0 NOT NULL, `rgt` int(11) DEFAULT 0 NOT NULL, `depth` int(11) DEFAULT 0 NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002407)[0m   [0;1mDROP TABLE globalize_countries[0m
+  [4;35;1mSQL (0.003163)[0m   [0mCREATE TABLE globalize_countries (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `code` varchar(2), `english_name` varchar(255), `date_format` varchar(255), `currency_format` varchar(255), `currency_code` varchar(3), `thousands_sep` varchar(2), `decimal_sep` varchar(2), `currency_decimal_sep` varchar(2), `number_grouping_scheme` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.009405)[0m   [0;1mCREATE INDEX `globalize_countries_code_index` ON globalize_countries (`code`)[0m
+  [4;35;1mSQL (0.002721)[0m   [0mDROP TABLE globalize_languages[0m
+  [4;36;1mSQL (0.003523)[0m   [0;1mCREATE TABLE globalize_languages (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `iso_639_1` varchar(2), `iso_639_2` varchar(3), `iso_639_3` varchar(3), `rfc_3066` varchar(255), `english_name` varchar(255), `english_name_locale` varchar(255), `english_name_modifier` varchar(255), `native_name` varchar(255), `native_name_locale` varchar(255), `native_name_modifier` varchar(255), `macro_language` tinyint(1), `direction` varchar(255), `pluralization` varchar(255), `scope` varchar(1)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.009987)[0m   [0mCREATE INDEX `globalize_languages_iso_639_1_index` ON globalize_languages (`iso_639_1`)[0m
+  [4;36;1mSQL (0.009520)[0m   [0;1mCREATE INDEX `globalize_languages_iso_639_2_index` ON globalize_languages (`iso_639_2`)[0m
+  [4;35;1mSQL (0.043797)[0m   [0mCREATE INDEX `globalize_languages_iso_639_3_index` ON globalize_languages (`iso_639_3`)[0m
+  [4;36;1mSQL (0.038221)[0m   [0;1mCREATE INDEX `globalize_languages_rfc_3066_index` ON globalize_languages (`rfc_3066`)[0m
+  [4;35;1mSQL (0.308103)[0m   [0mDROP TABLE globalize_translations[0m
+  [4;36;1mSQL (0.003112)[0m   [0;1mCREATE TABLE globalize_translations (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255), `tr_key` varchar(255), `table_name` varchar(255), `item_id` int(11), `facet` varchar(255), `built_in` tinyint(1) DEFAULT 1, `language_id` int(11), `pluralization_index` int(11), `text` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.025629)[0m   [0mCREATE INDEX `globalize_translations_tr_key_index` ON globalize_translations (`tr_key`, `language_id`)[0m
+  [4;36;1mSQL (0.009085)[0m   [0;1mCREATE INDEX `globalize_translations_table_name_index` ON globalize_translations (`table_name`, `item_id`, `language_id`)[0m
+  [4;35;1mSQL (0.002244)[0m   [0mDROP TABLE order_items[0m
+  [4;36;1mSQL (0.016290)[0m   [0;1mCREATE TABLE order_items (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_id` int(11), `order_id` int(11), `price` float, `amount` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002307)[0m   [0mDROP TABLE orders[0m
+  [4;36;1mSQL (0.002963)[0m   [0;1mCREATE TABLE orders (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255), `phone_number` varchar(255), `ship_to_first_name` varchar(255), `ship_to_last_name` varchar(255), `ship_to_address` varchar(255), `ship_to_city` varchar(255), `ship_to_postal_code` varchar(255), `ship_to_country` varchar(255), `customer_ip` varchar(255), `status` varchar(255) DEFAULT 'open', `error_message` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001998)[0m   [0mDROP TABLE publishers[0m
+  [4;36;1mSQL (0.002645)[0m   [0;1mCREATE TABLE publishers (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002097)[0m   [0mDROP TABLE tags[0m
+  [4;36;1mSQL (0.003047)[0m   [0;1mCREATE TABLE tags (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002374)[0m   [0mDROP TABLE users[0m
+  [4;36;1mSQL (0.002891)[0m   [0;1mCREATE TABLE users (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255), `email` varchar(255), `crypted_password` varchar(40), `salt` varchar(40), `created_at` datetime, `updated_at` datetime, `remember_token` varchar(255), `remember_token_expires_at` datetime, `pw_reset_code` varchar(40)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.002155)[0m   [0;1mSHOW FIELDS FROM schema_info[0m
+  [4;35;1mSQL (0.001389)[0m   [0mUPDATE schema_info SET version = 12[0m
+  [4;36;1mSQL (0.000143)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000499)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000615)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002104)[0m   [0mSHOW FIELDS FROM authors[0m
+  [4;36;1mSQL (0.000488)[0m   [0;1mSHOW KEYS FROM authors[0m
+  [4;35;1mSQL (0.001799)[0m   [0mSHOW FIELDS FROM authors_books[0m
+  [4;36;1mSQL (0.000497)[0m   [0;1mSHOW KEYS FROM authors_books[0m
+  [4;35;1mSQL (0.002337)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mSQL (0.000527)[0m   [0;1mSHOW KEYS FROM books[0m
+  [4;35;1mSQL (0.001879)[0m   [0mSHOW FIELDS FROM books_tags[0m
+  [4;36;1mSQL (0.000563)[0m   [0;1mSHOW KEYS FROM books_tags[0m
+  [4;35;1mSQL (0.001802)[0m   [0mSHOW FIELDS FROM cart_items[0m
+  [4;36;1mSQL (0.000459)[0m   [0;1mSHOW KEYS FROM cart_items[0m
+  [4;35;1mSQL (0.001758)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mSQL (0.000678)[0m   [0;1mSHOW KEYS FROM carts[0m
+  [4;35;1mSQL (0.002630)[0m   [0mSHOW FIELDS FROM forum_posts[0m
+  [4;36;1mSQL (0.000397)[0m   [0;1mSHOW KEYS FROM forum_posts[0m
+  [4;35;1mSQL (0.002514)[0m   [0mSHOW FIELDS FROM globalize_countries[0m
+  [4;36;1mSQL (0.001190)[0m   [0;1mSHOW KEYS FROM globalize_countries[0m
+  [4;35;1mSQL (0.002836)[0m   [0mSHOW FIELDS FROM globalize_languages[0m
+  [4;36;1mSQL (0.002294)[0m   [0;1mSHOW KEYS FROM globalize_languages[0m
+  [4;35;1mSQL (0.002493)[0m   [0mSHOW FIELDS FROM globalize_translations[0m
+  [4;36;1mSQL (0.073474)[0m   [0;1mSHOW KEYS FROM globalize_translations[0m
+  [4;35;1mSQL (0.002410)[0m   [0mSHOW FIELDS FROM order_items[0m
+  [4;36;1mSQL (0.000449)[0m   [0;1mSHOW KEYS FROM order_items[0m
+  [4;35;1mSQL (0.002605)[0m   [0mSHOW FIELDS FROM orders[0m
+  [4;36;1mSQL (0.000820)[0m   [0;1mSHOW KEYS FROM orders[0m
+  [4;35;1mSQL (0.001931)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mSQL (0.000559)[0m   [0;1mSHOW KEYS FROM publishers[0m
+  [4;35;1mSQL (0.001830)[0m   [0mSHOW FIELDS FROM tags[0m
+  [4;36;1mSQL (0.000560)[0m   [0;1mSHOW KEYS FROM tags[0m
+  [4;35;1mSQL (0.002232)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mSQL (0.000503)[0m   [0;1mSHOW KEYS FROM users[0m
+  [4;35;1mSQL (0.000126)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.036137)[0m   [0;1mDROP TABLE authors[0m
+  [4;35;1mSQL (0.003673)[0m   [0mCREATE TABLE authors (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002201)[0m   [0;1mDROP TABLE authors_books[0m
+  [4;35;1mSQL (0.002580)[0m   [0mCREATE TABLE authors_books (`author_id` int(11) DEFAULT 0 NOT NULL, `book_id` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002141)[0m   [0;1mDROP TABLE books[0m
+  [4;35;1mSQL (0.003174)[0m   [0mCREATE TABLE books (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT '' NOT NULL, `publisher_id` int(11) DEFAULT 0 NOT NULL, `published_at` datetime, `isbn` varchar(13), `blurb` text, `page_count` int(11), `price` float, `created_at` datetime, `updated_at` datetime, `cover_image` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002528)[0m   [0;1mDROP TABLE books_tags[0m
+  [4;35;1mSQL (0.002880)[0m   [0mCREATE TABLE books_tags (`tag_id` int(11) DEFAULT 0 NOT NULL, `book_id` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.026662)[0m   [0;1mCREATE INDEX `fk_tb_tags` ON books_tags (`tag_id`)[0m
+  [4;35;1mSQL (0.019472)[0m   [0mCREATE INDEX `fk_tb_books` ON books_tags (`book_id`)[0m
+  [4;36;1mSQL (0.002225)[0m   [0;1mDROP TABLE cart_items[0m
+  [4;35;1mSQL (0.003022)[0m   [0mCREATE TABLE cart_items (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_id` int(11), `cart_id` int(11), `price` float, `amount` int(11), `created_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001965)[0m   [0;1mDROP TABLE carts[0m
+  [4;35;1mSQL (0.002319)[0m   [0mCREATE TABLE carts (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001935)[0m   [0;1mDROP TABLE forum_posts[0m
+  [4;35;1mSQL (0.003273)[0m   [0mCREATE TABLE forum_posts (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(50) DEFAULT '' NOT NULL, `subject` varchar(255) DEFAULT '' NOT NULL, `body` text, `root_id` int(11) DEFAULT 0 NOT NULL, `parent_id` int(11) DEFAULT 0 NOT NULL, `lft` int(11) DEFAULT 0 NOT NULL, `rgt` int(11) DEFAULT 0 NOT NULL, `depth` int(11) DEFAULT 0 NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002445)[0m   [0;1mDROP TABLE globalize_countries[0m
+  [4;35;1mSQL (0.002491)[0m   [0mCREATE TABLE globalize_countries (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `code` varchar(2), `english_name` varchar(255), `date_format` varchar(255), `currency_format` varchar(255), `currency_code` varchar(3), `thousands_sep` varchar(2), `decimal_sep` varchar(2), `currency_decimal_sep` varchar(2), `number_grouping_scheme` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.008390)[0m   [0;1mCREATE INDEX `globalize_countries_code_index` ON globalize_countries (`code`)[0m
+  [4;35;1mSQL (0.002874)[0m   [0mDROP TABLE globalize_languages[0m
+  [4;36;1mSQL (0.002618)[0m   [0;1mCREATE TABLE globalize_languages (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `iso_639_1` varchar(2), `iso_639_2` varchar(3), `iso_639_3` varchar(3), `rfc_3066` varchar(255), `english_name` varchar(255), `english_name_locale` varchar(255), `english_name_modifier` varchar(255), `native_name` varchar(255), `native_name_locale` varchar(255), `native_name_modifier` varchar(255), `macro_language` tinyint(1), `direction` varchar(255), `pluralization` varchar(255), `scope` varchar(1)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.033129)[0m   [0mCREATE INDEX `globalize_languages_iso_639_1_index` ON globalize_languages (`iso_639_1`)[0m
+  [4;36;1mSQL (0.030407)[0m   [0;1mCREATE INDEX `globalize_languages_iso_639_2_index` ON globalize_languages (`iso_639_2`)[0m
+  [4;35;1mSQL (0.009441)[0m   [0mCREATE INDEX `globalize_languages_iso_639_3_index` ON globalize_languages (`iso_639_3`)[0m
+  [4;36;1mSQL (0.009046)[0m   [0;1mCREATE INDEX `globalize_languages_rfc_3066_index` ON globalize_languages (`rfc_3066`)[0m
+  [4;35;1mSQL (0.026159)[0m   [0mDROP TABLE globalize_translations[0m
+  [4;36;1mSQL (0.003322)[0m   [0;1mCREATE TABLE globalize_translations (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255), `tr_key` varchar(255), `table_name` varchar(255), `item_id` int(11), `facet` varchar(255), `built_in` tinyint(1) DEFAULT 1, `language_id` int(11), `pluralization_index` int(11), `text` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.009166)[0m   [0mCREATE INDEX `globalize_translations_tr_key_index` ON globalize_translations (`tr_key`, `language_id`)[0m
+  [4;36;1mSQL (0.008085)[0m   [0;1mCREATE INDEX `globalize_translations_table_name_index` ON globalize_translations (`table_name`, `item_id`, `language_id`)[0m
+  [4;35;1mSQL (0.002232)[0m   [0mDROP TABLE order_items[0m
+  [4;36;1mSQL (0.002449)[0m   [0;1mCREATE TABLE order_items (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_id` int(11), `order_id` int(11), `price` float, `amount` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.004105)[0m   [0mDROP TABLE orders[0m
+  [4;36;1mSQL (0.003031)[0m   [0;1mCREATE TABLE orders (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255), `phone_number` varchar(255), `ship_to_first_name` varchar(255), `ship_to_last_name` varchar(255), `ship_to_address` varchar(255), `ship_to_city` varchar(255), `ship_to_postal_code` varchar(255), `ship_to_country` varchar(255), `customer_ip` varchar(255), `status` varchar(255) DEFAULT 'open', `error_message` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002337)[0m   [0mDROP TABLE publishers[0m
+  [4;36;1mSQL (0.002352)[0m   [0;1mCREATE TABLE publishers (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001981)[0m   [0mDROP TABLE tags[0m
+  [4;36;1mSQL (0.002698)[0m   [0;1mCREATE TABLE tags (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002146)[0m   [0mDROP TABLE users[0m
+  [4;36;1mSQL (0.002955)[0m   [0;1mCREATE TABLE users (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255), `email` varchar(255), `crypted_password` varchar(40), `salt` varchar(40), `created_at` datetime, `updated_at` datetime, `remember_token` varchar(255), `remember_token_expires_at` datetime, `pw_reset_code` varchar(40)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.002019)[0m   [0;1mSHOW FIELDS FROM schema_info[0m
+  [4;35;1mSQL (0.000419)[0m   [0mUPDATE schema_info SET version = 12[0m
+  [4;36;1mSQL (0.000157)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000492)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000631)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002376)[0m   [0mSHOW FIELDS FROM authors[0m
+  [4;36;1mSQL (0.000657)[0m   [0;1mSHOW KEYS FROM authors[0m
+  [4;35;1mSQL (0.001876)[0m   [0mSHOW FIELDS FROM authors_books[0m
+  [4;36;1mSQL (0.000740)[0m   [0;1mSHOW KEYS FROM authors_books[0m
+  [4;35;1mSQL (0.002596)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mSQL (0.000512)[0m   [0;1mSHOW KEYS FROM books[0m
+  [4;35;1mSQL (0.001958)[0m   [0mSHOW FIELDS FROM books_tags[0m
+  [4;36;1mSQL (0.000856)[0m   [0;1mSHOW KEYS FROM books_tags[0m
+  [4;35;1mSQL (0.002431)[0m   [0mSHOW FIELDS FROM cart_items[0m
+  [4;36;1mSQL (0.001053)[0m   [0;1mSHOW KEYS FROM cart_items[0m
+  [4;35;1mSQL (0.001874)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mSQL (0.000644)[0m   [0;1mSHOW KEYS FROM carts[0m
+  [4;35;1mSQL (0.002571)[0m   [0mSHOW FIELDS FROM forum_posts[0m
+  [4;36;1mSQL (0.000428)[0m   [0;1mSHOW KEYS FROM forum_posts[0m
+  [4;35;1mSQL (0.002443)[0m   [0mSHOW FIELDS FROM globalize_countries[0m
+  [4;36;1mSQL (0.001280)[0m   [0;1mSHOW KEYS FROM globalize_countries[0m
+  [4;35;1mSQL (0.003086)[0m   [0mSHOW FIELDS FROM globalize_languages[0m
+  [4;36;1mSQL (0.002076)[0m   [0;1mSHOW KEYS FROM globalize_languages[0m
+  [4;35;1mSQL (0.002608)[0m   [0mSHOW FIELDS FROM globalize_translations[0m
+  [4;36;1mSQL (0.045680)[0m   [0;1mSHOW KEYS FROM globalize_translations[0m
+  [4;35;1mSQL (0.002364)[0m   [0mSHOW FIELDS FROM order_items[0m
+  [4;36;1mSQL (0.000500)[0m   [0;1mSHOW KEYS FROM order_items[0m
+  [4;35;1mSQL (0.002636)[0m   [0mSHOW FIELDS FROM orders[0m
+  [4;36;1mSQL (0.000577)[0m   [0;1mSHOW KEYS FROM orders[0m
+  [4;35;1mSQL (0.001858)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mSQL (0.000508)[0m   [0;1mSHOW KEYS FROM publishers[0m
+  [4;35;1mSQL (0.001913)[0m   [0mSHOW FIELDS FROM tags[0m
+  [4;36;1mSQL (0.000708)[0m   [0;1mSHOW KEYS FROM tags[0m
+  [4;35;1mSQL (0.002511)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mSQL (0.000583)[0m   [0;1mSHOW KEYS FROM users[0m
+  [4;35;1mSQL (0.000156)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.067361)[0m   [0;1mDROP TABLE authors[0m
+  [4;35;1mSQL (0.030068)[0m   [0mCREATE TABLE authors (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002315)[0m   [0;1mDROP TABLE authors_books[0m
+  [4;35;1mSQL (0.002943)[0m   [0mCREATE TABLE authors_books (`author_id` int(11) DEFAULT 0 NOT NULL, `book_id` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002529)[0m   [0;1mDROP TABLE books[0m
+  [4;35;1mSQL (0.003521)[0m   [0mCREATE TABLE books (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT '' NOT NULL, `publisher_id` int(11) DEFAULT 0 NOT NULL, `published_at` datetime, `isbn` varchar(13), `blurb` text, `page_count` int(11), `price` float, `created_at` datetime, `updated_at` datetime, `cover_image` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002194)[0m   [0;1mDROP TABLE books_tags[0m
+  [4;35;1mSQL (0.002942)[0m   [0mCREATE TABLE books_tags (`tag_id` int(11) DEFAULT 0 NOT NULL, `book_id` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.030278)[0m   [0;1mCREATE INDEX `fk_tb_tags` ON books_tags (`tag_id`)[0m
+  [4;35;1mSQL (0.018499)[0m   [0mCREATE INDEX `fk_tb_books` ON books_tags (`book_id`)[0m
+  [4;36;1mSQL (0.002179)[0m   [0;1mDROP TABLE cart_items[0m
+  [4;35;1mSQL (0.002716)[0m   [0mCREATE TABLE cart_items (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_id` int(11), `cart_id` int(11), `price` float, `amount` int(11), `created_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002203)[0m   [0;1mDROP TABLE carts[0m
+  [4;35;1mSQL (0.002868)[0m   [0mCREATE TABLE carts (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002341)[0m   [0;1mDROP TABLE forum_posts[0m
+  [4;35;1mSQL (0.003361)[0m   [0mCREATE TABLE forum_posts (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(50) DEFAULT '' NOT NULL, `subject` varchar(255) DEFAULT '' NOT NULL, `body` text, `root_id` int(11) DEFAULT 0 NOT NULL, `parent_id` int(11) DEFAULT 0 NOT NULL, `lft` int(11) DEFAULT 0 NOT NULL, `rgt` int(11) DEFAULT 0 NOT NULL, `depth` int(11) DEFAULT 0 NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002335)[0m   [0;1mDROP TABLE globalize_countries[0m
+  [4;35;1mSQL (0.003059)[0m   [0mCREATE TABLE globalize_countries (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `code` varchar(2), `english_name` varchar(255), `date_format` varchar(255), `currency_format` varchar(255), `currency_code` varchar(3), `thousands_sep` varchar(2), `decimal_sep` varchar(2), `currency_decimal_sep` varchar(2), `number_grouping_scheme` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.008736)[0m   [0;1mCREATE INDEX `globalize_countries_code_index` ON globalize_countries (`code`)[0m
+  [4;35;1mSQL (0.002507)[0m   [0mDROP TABLE globalize_languages[0m
+  [4;36;1mSQL (0.003331)[0m   [0;1mCREATE TABLE globalize_languages (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `iso_639_1` varchar(2), `iso_639_2` varchar(3), `iso_639_3` varchar(3), `rfc_3066` varchar(255), `english_name` varchar(255), `english_name_locale` varchar(255), `english_name_modifier` varchar(255), `native_name` varchar(255), `native_name_locale` varchar(255), `native_name_modifier` varchar(255), `macro_language` tinyint(1), `direction` varchar(255), `pluralization` varchar(255), `scope` varchar(1)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.011476)[0m   [0mCREATE INDEX `globalize_languages_iso_639_1_index` ON globalize_languages (`iso_639_1`)[0m
+  [4;36;1mSQL (0.009060)[0m   [0;1mCREATE INDEX `globalize_languages_iso_639_2_index` ON globalize_languages (`iso_639_2`)[0m
+  [4;35;1mSQL (0.009718)[0m   [0mCREATE INDEX `globalize_languages_iso_639_3_index` ON globalize_languages (`iso_639_3`)[0m
+  [4;36;1mSQL (0.018112)[0m   [0;1mCREATE INDEX `globalize_languages_rfc_3066_index` ON globalize_languages (`rfc_3066`)[0m
+  [4;35;1mSQL (0.002708)[0m   [0mDROP TABLE globalize_translations[0m
+  [4;36;1mSQL (0.003314)[0m   [0;1mCREATE TABLE globalize_translations (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255), `tr_key` varchar(255), `table_name` varchar(255), `item_id` int(11), `facet` varchar(255), `built_in` tinyint(1) DEFAULT 1, `language_id` int(11), `pluralization_index` int(11), `text` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.008693)[0m   [0mCREATE INDEX `globalize_translations_tr_key_index` ON globalize_translations (`tr_key`, `language_id`)[0m
+  [4;36;1mSQL (0.009507)[0m   [0;1mCREATE INDEX `globalize_translations_table_name_index` ON globalize_translations (`table_name`, `item_id`, `language_id`)[0m
+  [4;35;1mSQL (0.002273)[0m   [0mDROP TABLE order_items[0m
+  [4;36;1mSQL (0.002828)[0m   [0;1mCREATE TABLE order_items (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_id` int(11), `order_id` int(11), `price` float, `amount` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002397)[0m   [0mDROP TABLE orders[0m
+  [4;36;1mSQL (0.003044)[0m   [0;1mCREATE TABLE orders (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255), `phone_number` varchar(255), `ship_to_first_name` varchar(255), `ship_to_last_name` varchar(255), `ship_to_address` varchar(255), `ship_to_city` varchar(255), `ship_to_postal_code` varchar(255), `ship_to_country` varchar(255), `customer_ip` varchar(255), `status` varchar(255) DEFAULT 'open', `error_message` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002140)[0m   [0mDROP TABLE publishers[0m
+  [4;36;1mSQL (0.002809)[0m   [0;1mCREATE TABLE publishers (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002053)[0m   [0mDROP TABLE tags[0m
+  [4;36;1mSQL (0.002616)[0m   [0;1mCREATE TABLE tags (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.011752)[0m   [0mDROP TABLE users[0m
+  [4;36;1mSQL (0.002869)[0m   [0;1mCREATE TABLE users (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255), `email` varchar(255), `crypted_password` varchar(40), `salt` varchar(40), `created_at` datetime, `updated_at` datetime, `remember_token` varchar(255), `remember_token_expires_at` datetime, `pw_reset_code` varchar(40)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.002215)[0m   [0;1mSHOW FIELDS FROM schema_info[0m
+  [4;35;1mSQL (0.000468)[0m   [0mUPDATE schema_info SET version = 12[0m
+  [4;36;1mSQL (0.000138)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000499)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000617)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.062402)[0m   [0mSHOW FIELDS FROM authors[0m
+  [4;36;1mSQL (0.000503)[0m   [0;1mSHOW KEYS FROM authors[0m
+  [4;35;1mSQL (0.001939)[0m   [0mSHOW FIELDS FROM authors_books[0m
+  [4;36;1mSQL (0.000757)[0m   [0;1mSHOW KEYS FROM authors_books[0m
+  [4;35;1mSQL (0.002693)[0m   [0mSHOW FIELDS FROM books[0m
+  [4;36;1mSQL (0.000701)[0m   [0;1mSHOW KEYS FROM books[0m
+  [4;35;1mSQL (0.002217)[0m   [0mSHOW FIELDS FROM books_tags[0m
+  [4;36;1mSQL (0.000656)[0m   [0;1mSHOW KEYS FROM books_tags[0m
+  [4;35;1mSQL (0.002341)[0m   [0mSHOW FIELDS FROM cart_items[0m
+  [4;36;1mSQL (0.000727)[0m   [0;1mSHOW KEYS FROM cart_items[0m
+  [4;35;1mSQL (0.002088)[0m   [0mSHOW FIELDS FROM carts[0m
+  [4;36;1mSQL (0.000805)[0m   [0;1mSHOW KEYS FROM carts[0m
+  [4;35;1mSQL (0.002727)[0m   [0mSHOW FIELDS FROM forum_posts[0m
+  [4;36;1mSQL (0.000404)[0m   [0;1mSHOW KEYS FROM forum_posts[0m
+  [4;35;1mSQL (0.002662)[0m   [0mSHOW FIELDS FROM globalize_countries[0m
+  [4;36;1mSQL (0.001224)[0m   [0;1mSHOW KEYS FROM globalize_countries[0m
+  [4;35;1mSQL (0.003164)[0m   [0mSHOW FIELDS FROM globalize_languages[0m
+  [4;36;1mSQL (0.002757)[0m   [0;1mSHOW KEYS FROM globalize_languages[0m
+  [4;35;1mSQL (0.002612)[0m   [0mSHOW FIELDS FROM globalize_translations[0m
+  [4;36;1mSQL (0.047572)[0m   [0;1mSHOW KEYS FROM globalize_translations[0m
+  [4;35;1mSQL (0.004786)[0m   [0mSHOW FIELDS FROM order_items[0m
+  [4;36;1mSQL (0.000635)[0m   [0;1mSHOW KEYS FROM order_items[0m
+  [4;35;1mSQL (0.003182)[0m   [0mSHOW FIELDS FROM orders[0m
+  [4;36;1mSQL (0.000376)[0m   [0;1mSHOW KEYS FROM orders[0m
+  [4;35;1mSQL (0.002069)[0m   [0mSHOW FIELDS FROM publishers[0m
+  [4;36;1mSQL (0.000766)[0m   [0;1mSHOW KEYS FROM publishers[0m
+  [4;35;1mSQL (0.001976)[0m   [0mSHOW FIELDS FROM tags[0m
+  [4;36;1mSQL (0.000628)[0m   [0;1mSHOW KEYS FROM tags[0m
+  [4;35;1mSQL (0.002533)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mSQL (0.001585)[0m   [0;1mSHOW KEYS FROM users[0m
+  [4;35;1mSQL (0.000161)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.052916)[0m   [0;1mDROP TABLE authors[0m
+  [4;35;1mSQL (0.003163)[0m   [0mCREATE TABLE authors (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002437)[0m   [0;1mDROP TABLE authors_books[0m
+  [4;35;1mSQL (0.002857)[0m   [0mCREATE TABLE authors_books (`author_id` int(11) DEFAULT 0 NOT NULL, `book_id` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002229)[0m   [0;1mDROP TABLE books[0m
+  [4;35;1mSQL (0.003390)[0m   [0mCREATE TABLE books (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT '' NOT NULL, `publisher_id` int(11) DEFAULT 0 NOT NULL, `published_at` datetime, `isbn` varchar(13), `blurb` text, `page_count` int(11), `price` float, `created_at` datetime, `updated_at` datetime, `cover_image` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002864)[0m   [0;1mDROP TABLE books_tags[0m
+  [4;35;1mSQL (0.002836)[0m   [0mCREATE TABLE books_tags (`tag_id` int(11) DEFAULT 0 NOT NULL, `book_id` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.008963)[0m   [0;1mCREATE INDEX `fk_tb_tags` ON books_tags (`tag_id`)[0m
+  [4;35;1mSQL (0.011118)[0m   [0mCREATE INDEX `fk_tb_books` ON books_tags (`book_id`)[0m
+  [4;36;1mSQL (0.002826)[0m   [0;1mDROP TABLE cart_items[0m
+  [4;35;1mSQL (0.002441)[0m   [0mCREATE TABLE cart_items (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_id` int(11), `cart_id` int(11), `price` float, `amount` int(11), `created_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.003649)[0m   [0;1mDROP TABLE carts[0m
+  [4;35;1mSQL (0.002293)[0m   [0mCREATE TABLE carts (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001958)[0m   [0;1mDROP TABLE forum_posts[0m
+  [4;35;1mSQL (0.002551)[0m   [0mCREATE TABLE forum_posts (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(50) DEFAULT '' NOT NULL, `subject` varchar(255) DEFAULT '' NOT NULL, `body` text, `root_id` int(11) DEFAULT 0 NOT NULL, `parent_id` int(11) DEFAULT 0 NOT NULL, `lft` int(11) DEFAULT 0 NOT NULL, `rgt` int(11) DEFAULT 0 NOT NULL, `depth` int(11) DEFAULT 0 NOT NULL, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.002044)[0m   [0;1mDROP TABLE globalize_countries[0m
+  [4;35;1mSQL (0.003164)[0m   [0mCREATE TABLE globalize_countries (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `code` varchar(2), `english_name` varchar(255), `date_format` varchar(255), `currency_format` varchar(255), `currency_code` varchar(3), `thousands_sep` varchar(2), `decimal_sep` varchar(2), `currency_decimal_sep` varchar(2), `number_grouping_scheme` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.008192)[0m   [0;1mCREATE INDEX `globalize_countries_code_index` ON globalize_countries (`code`)[0m
+  [4;35;1mSQL (0.002430)[0m   [0mDROP TABLE globalize_languages[0m
+  [4;36;1mSQL (0.003081)[0m   [0;1mCREATE TABLE globalize_languages (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `iso_639_1` varchar(2), `iso_639_2` varchar(3), `iso_639_3` varchar(3), `rfc_3066` varchar(255), `english_name` varchar(255), `english_name_locale` varchar(255), `english_name_modifier` varchar(255), `native_name` varchar(255), `native_name_locale` varchar(255), `native_name_modifier` varchar(255), `macro_language` tinyint(1), `direction` varchar(255), `pluralization` varchar(255), `scope` varchar(1)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.025359)[0m   [0mCREATE INDEX `globalize_languages_iso_639_1_index` ON globalize_languages (`iso_639_1`)[0m
+  [4;36;1mSQL (0.023898)[0m   [0;1mCREATE INDEX `globalize_languages_iso_639_2_index` ON globalize_languages (`iso_639_2`)[0m
+  [4;35;1mSQL (0.009720)[0m   [0mCREATE INDEX `globalize_languages_iso_639_3_index` ON globalize_languages (`iso_639_3`)[0m
+  [4;36;1mSQL (0.028664)[0m   [0;1mCREATE INDEX `globalize_languages_rfc_3066_index` ON globalize_languages (`rfc_3066`)[0m
+  [4;35;1mSQL (0.002942)[0m   [0mDROP TABLE globalize_translations[0m
+  [4;36;1mSQL (0.003666)[0m   [0;1mCREATE TABLE globalize_translations (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255), `tr_key` varchar(255), `table_name` varchar(255), `item_id` int(11), `facet` varchar(255), `built_in` tinyint(1) DEFAULT 1, `language_id` int(11), `pluralization_index` int(11), `text` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.021370)[0m   [0mCREATE INDEX `globalize_translations_tr_key_index` ON globalize_translations (`tr_key`, `language_id`)[0m
+  [4;36;1mSQL (0.009575)[0m   [0;1mCREATE INDEX `globalize_translations_table_name_index` ON globalize_translations (`table_name`, `item_id`, `language_id`)[0m
+  [4;35;1mSQL (0.002279)[0m   [0mDROP TABLE order_items[0m
+  [4;36;1mSQL (0.002890)[0m   [0;1mCREATE TABLE order_items (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `book_id` int(11), `order_id` int(11), `price` float, `amount` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002263)[0m   [0mDROP TABLE orders[0m
+  [4;36;1mSQL (0.003193)[0m   [0;1mCREATE TABLE orders (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255), `phone_number` varchar(255), `ship_to_first_name` varchar(255), `ship_to_last_name` varchar(255), `ship_to_address` varchar(255), `ship_to_city` varchar(255), `ship_to_postal_code` varchar(255), `ship_to_country` varchar(255), `customer_ip` varchar(255), `status` varchar(255) DEFAULT 'open', `error_message` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002243)[0m   [0mDROP TABLE publishers[0m
+  [4;36;1mSQL (0.002728)[0m   [0;1mCREATE TABLE publishers (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002520)[0m   [0mDROP TABLE tags[0m
+  [4;36;1mSQL (0.002510)[0m   [0;1mCREATE TABLE tags (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT '' NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.002654)[0m   [0mDROP TABLE users[0m
+  [4;36;1mSQL (0.002867)[0m   [0;1mCREATE TABLE users (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255), `email` varchar(255), `crypted_password` varchar(40), `salt` varchar(40), `created_at` datetime, `updated_at` datetime, `remember_token` varchar(255), `remember_token_expires_at` datetime, `pw_reset_code` varchar(40)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.002146)[0m   [0;1mSHOW FIELDS FROM schema_info[0m
+  [4;35;1mSQL (0.000541)[0m   [0mUPDATE schema_info SET version = 12[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.001518)[0m   [0mSHOW FULL TABLES WHERE Table_type = 'BASE TABLE'[0m
+  [4;36;1mSQL (0.000498)[0m   [0;1mSHOW CREATE TABLE authors[0m
+  [4;35;1mSQL (0.019193)[0m   [0mSHOW CREATE TABLE authors_books[0m
+  [4;36;1mSQL (0.000591)[0m   [0;1mSHOW CREATE TABLE books[0m
+  [4;35;1mSQL (0.000426)[0m   [0mSHOW CREATE TABLE books_tags[0m
+  [4;36;1mSQL (0.000439)[0m   [0;1mSHOW CREATE TABLE cart_items[0m
+  [4;35;1mSQL (0.000411)[0m   [0mSHOW CREATE TABLE carts[0m
+  [4;36;1mSQL (0.000455)[0m   [0;1mSHOW CREATE TABLE forum_posts[0m
+  [4;35;1mSQL (0.000360)[0m   [0mSHOW CREATE TABLE globalize_countries[0m
+  [4;36;1mSQL (0.000382)[0m   [0;1mSHOW CREATE TABLE globalize_languages[0m
+  [4;35;1mSQL (0.000368)[0m   [0mSHOW CREATE TABLE globalize_translations[0m
+  [4;36;1mSQL (0.000434)[0m   [0;1mSHOW CREATE TABLE order_items[0m
+  [4;35;1mSQL (0.000606)[0m   [0mSHOW CREATE TABLE orders[0m
+  [4;36;1mSQL (0.000714)[0m   [0;1mSHOW CREATE TABLE publishers[0m
+  [4;35;1mSQL (0.000557)[0m   [0mSHOW CREATE TABLE schema_info[0m
+  [4;36;1mSQL (0.000419)[0m   [0;1mSHOW CREATE TABLE tags[0m
+  [4;35;1mSQL (0.000436)[0m   [0mSHOW CREATE TABLE users[0m
+  [4;36;1mSQL (0.000219)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000140)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.475997)[0m   [0;1mDROP DATABASE IF EXISTS `emporium_test`[0m
+  [4;35;1mSQL (0.062002)[0m   [0mCREATE DATABASE `emporium_test`[0m
+  [4;36;1mSQL (0.000147)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000159)[0m   [0mSET foreign_key_checks = 0[0m
+  [4;36;1mSQL (0.002386)[0m   [0;1mCREATE TABLE `authors` (
+ `id` int(11) NOT NULL auto_increment,
+ `first_name` varchar(255) default NULL,
+ `last_name` varchar(255) default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (0.027952)[0m   [0mCREATE TABLE `authors_books` (
+ `author_id` int(11) NOT NULL default '0',
+ `book_id` int(11) NOT NULL default '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;[0m
+  [4;36;1mSQL (0.002121)[0m   [0;1mCREATE TABLE `books` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) NOT NULL default '',
+ `publisher_id` int(11) NOT NULL default '0',
+ `published_at` datetime default NULL,
+ `isbn` varchar(13) default NULL,
+ `blurb` text,
+ `page_count` int(11) default NULL,
+ `price` float default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ `cover_image` varchar(255) default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (0.001779)[0m   [0mCREATE TABLE `books_tags` (
+ `tag_id` int(11) NOT NULL default '0',
+ `book_id` int(11) NOT NULL default '0',
+ KEY `fk_tb_tags` (`tag_id`),
+ KEY `fk_tb_books` (`book_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (0.001759)[0m   [0;1mCREATE TABLE `cart_items` (
+ `id` int(11) NOT NULL auto_increment,
+ `book_id` int(11) default NULL,
+ `cart_id` int(11) default NULL,
+ `price` float default NULL,
+ `amount` int(11) default NULL,
+ `created_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (0.001739)[0m   [0mCREATE TABLE `carts` (
+ `id` int(11) NOT NULL auto_increment,
+ PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1664 DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (0.001891)[0m   [0;1mCREATE TABLE `forum_posts` (
+ `id` int(11) NOT NULL auto_increment,
+ `name` varchar(50) NOT NULL default '',
+ `subject` varchar(255) NOT NULL default '',
+ `body` text,
+ `root_id` int(11) NOT NULL default '0',
+ `parent_id` int(11) NOT NULL default '0',
+ `lft` int(11) NOT NULL default '0',
+ `rgt` int(11) NOT NULL default '0',
+ `depth` int(11) NOT NULL default '0',
+ `created_at` datetime NOT NULL default '0000-00-00 00:00:00',
+ `updated_at` datetime NOT NULL default '0000-00-00 00:00:00',
+ PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (0.003084)[0m   [0mCREATE TABLE `globalize_countries` (
+ `id` int(11) NOT NULL auto_increment,
+ `code` varchar(2) default NULL,
+ `english_name` varchar(255) default NULL,
+ `date_format` varchar(255) default NULL,
+ `currency_format` varchar(255) default NULL,
+ `currency_code` varchar(3) default NULL,
+ `thousands_sep` varchar(2) default NULL,
+ `decimal_sep` varchar(2) default NULL,
+ `currency_decimal_sep` varchar(2) default NULL,
+ `number_grouping_scheme` varchar(255) default NULL,
+ PRIMARY KEY (`id`),
+ KEY `globalize_countries_code_index` (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;[0m
+  [4;36;1mSQL (0.003950)[0m   [0;1mCREATE TABLE `globalize_languages` (
+ `id` int(11) NOT NULL auto_increment,
+ `iso_639_1` varchar(2) default NULL,
+ `iso_639_2` varchar(3) default NULL,
+ `iso_639_3` varchar(3) default NULL,
+ `rfc_3066` varchar(255) default NULL,
+ `english_name` varchar(255) default NULL,
+ `english_name_locale` varchar(255) default NULL,
+ `english_name_modifier` varchar(255) default NULL,
+ `native_name` varchar(255) default NULL,
+ `native_name_locale` varchar(255) default NULL,
+ `native_name_modifier` varchar(255) default NULL,
+ `macro_language` tinyint(1) default NULL,
+ `direction` varchar(255) default NULL,
+ `pluralization` varchar(255) default NULL,
+ `scope` varchar(1) default NULL,
+ PRIMARY KEY (`id`),
+ KEY `globalize_languages_iso_639_1_index` (`iso_639_1`),
+ KEY `globalize_languages_iso_639_2_index` (`iso_639_2`),
+ KEY `globalize_languages_iso_639_3_index` (`iso_639_3`),
+ KEY `globalize_languages_rfc_3066_index` (`rfc_3066`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;[0m
+  [4;35;1mSQL (0.006921)[0m   [0mCREATE TABLE `globalize_translations` (
+ `id` int(11) NOT NULL auto_increment,
+ `type` varchar(255) default NULL,
+ `tr_key` varchar(255) default NULL,
+ `table_name` varchar(255) default NULL,
+ `item_id` int(11) default NULL,
+ `facet` varchar(255) default NULL,
+ `built_in` tinyint(1) default '1',
+ `language_id` int(11) default NULL,
+ `pluralization_index` int(11) default NULL,
+ `text` text,
+ PRIMARY KEY (`id`),
+ KEY `globalize_translations_tr_key_index` (`tr_key`,`language_id`),
+ KEY `globalize_translations_table_name_index` (`table_name`,`item_id`,`language_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;[0m
+  [4;36;1mSQL (0.002190)[0m   [0;1mCREATE TABLE `order_items` (
+ `id` int(11) NOT NULL auto_increment,
+ `book_id` int(11) default NULL,
+ `order_id` int(11) default NULL,
+ `price` float default NULL,
+ `amount` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (0.003055)[0m   [0mCREATE TABLE `orders` (
+ `id` int(11) NOT NULL auto_increment,
+ `email` varchar(255) default NULL,
+ `phone_number` varchar(255) default NULL,
+ `ship_to_first_name` varchar(255) default NULL,
+ `ship_to_last_name` varchar(255) default NULL,
+ `ship_to_address` varchar(255) default NULL,
+ `ship_to_city` varchar(255) default NULL,
+ `ship_to_postal_code` varchar(255) default NULL,
+ `ship_to_country` varchar(255) default NULL,
+ `customer_ip` varchar(255) default NULL,
+ `status` varchar(255) default 'open',
+ `error_message` varchar(255) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (0.001714)[0m   [0;1mCREATE TABLE `publishers` (
+ `id` int(11) NOT NULL auto_increment,
+ `name` varchar(255) NOT NULL default '',
+ PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (0.001720)[0m   [0mCREATE TABLE `schema_info` (
+ `version` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;[0m
+  [4;36;1mSQL (0.001605)[0m   [0;1mCREATE TABLE `tags` (
+ `id` int(11) NOT NULL auto_increment,
+ `name` varchar(255) NOT NULL default '',
+ PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (0.001836)[0m   [0mCREATE TABLE `users` (
+ `id` int(11) NOT NULL auto_increment,
+ `login` varchar(255) default NULL,
+ `email` varchar(255) default NULL,
+ `crypted_password` varchar(40) default NULL,
+ `salt` varchar(40) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ `remember_token` varchar(255) default NULL,
+ `remember_token_expires_at` datetime default NULL,
+ `pw_reset_code` varchar(40) default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (0.000588)[0m   [0;1mINSERT INTO schema_info (version) VALUES (12)[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.015098)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000306)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000173)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000146)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000143)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000155)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000154)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000147)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000150)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000148)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000163)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000163)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000148)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddBlurbHtmlToBooks (13)
+  [4;36;1mSQL (0.027779)[0m   [0;1mALTER TABLE books ADD `blurb_html` text[0m
+  [4;35;1mSQL (0.000366)[0m   [0mUPDATE schema_info SET version = 13[0m
+  [4;36;1mSQL (0.000378)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.001263)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.054566)[0m   [0;1mSHOW FIELDS FROM authors[0m
+  [4;35;1mSQL (0.000552)[0m   [0mSHOW KEYS FROM authors[0m
+  [4;36;1mSQL (0.003075)[0m   [0;1mSHOW FIELDS FROM authors_books[0m
+  [4;35;1mSQL (0.000459)[0m   [0mSHOW KEYS FROM authors_books[0m
+  [4;36;1mSQL (0.002835)[0m   [0;1mSHOW FIELDS FROM books[0m
+  [4;35;1mSQL (0.000440)[0m   [0mSHOW KEYS FROM books[0m
+  [4;36;1mSQL (0.003063)[0m   [0;1mSHOW FIELDS FROM books_tags[0m
+  [4;35;1mSQL (0.000439)[0m   [0mSHOW KEYS FROM books_tags[0m
+  [4;36;1mSQL (0.004230)[0m   [0;1mSHOW FIELDS FROM cart_items[0m
+  [4;35;1mSQL (0.000428)[0m   [0mSHOW KEYS FROM cart_items[0m
+  [4;36;1mSQL (0.003425)[0m   [0;1mSHOW FIELDS FROM carts[0m
+  [4;35;1mSQL (0.000707)[0m   [0mSHOW KEYS FROM carts[0m
+  [4;36;1mSQL (0.003348)[0m   [0;1mSHOW FIELDS FROM forum_posts[0m
+  [4;35;1mSQL (0.000426)[0m   [0mSHOW KEYS FROM forum_posts[0m
+  [4;36;1mSQL (0.015113)[0m   [0;1mSHOW FIELDS FROM globalize_countries[0m
+  [4;35;1mSQL (0.001362)[0m   [0mSHOW KEYS FROM globalize_countries[0m
+  [4;36;1mSQL (0.004876)[0m   [0;1mSHOW FIELDS FROM globalize_languages[0m
+  [4;35;1mSQL (0.002038)[0m   [0mSHOW KEYS FROM globalize_languages[0m
+  [4;36;1mSQL (0.002766)[0m   [0;1mSHOW FIELDS FROM globalize_translations[0m
+  [4;35;1mSQL (0.047880)[0m   [0mSHOW KEYS FROM globalize_translations[0m
+  [4;36;1mSQL (0.021129)[0m   [0;1mSHOW FIELDS FROM order_items[0m
+  [4;35;1mSQL (0.001168)[0m   [0mSHOW KEYS FROM order_items[0m
+  [4;36;1mSQL (0.004441)[0m   [0;1mSHOW FIELDS FROM orders[0m
+  [4;35;1mSQL (0.000528)[0m   [0mSHOW KEYS FROM orders[0m
+  [4;36;1mSQL (0.003844)[0m   [0;1mSHOW FIELDS FROM publishers[0m
+  [4;35;1mSQL (0.001906)[0m   [0mSHOW KEYS FROM publishers[0m
+  [4;36;1mSQL (0.002785)[0m   [0;1mSHOW FIELDS FROM tags[0m
+  [4;35;1mSQL (0.002740)[0m   [0mSHOW KEYS FROM tags[0m
+  [4;36;1mSQL (0.003218)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mSQL (0.000421)[0m   [0mSHOW KEYS FROM users[0m
+  [4;36;1mSQL (0.000145)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000580)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000133)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000129)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000110)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000122)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000109)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000121)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000110)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000122)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000109)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000121)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000109)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000113)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000122)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddIndices (14)
+  [4;35;1mSQL (0.086142)[0m   [0mCREATE INDEX `authors_books_author_id_index` ON authors_books (`author_id`)[0m
+  [4;36;1mSQL (0.009649)[0m   [0;1mCREATE INDEX `authors_books_book_id_index` ON authors_books (`book_id`)[0m
+  [4;35;1mSQL (0.000426)[0m   [0mUPDATE schema_info SET version = 14[0m
+  [4;36;1mSQL (0.000263)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000830)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002917)[0m   [0;1mSHOW FIELDS FROM authors[0m
+  [4;35;1mSQL (0.000415)[0m   [0mSHOW KEYS FROM authors[0m
+  [4;36;1mSQL (0.001963)[0m   [0;1mSHOW FIELDS FROM authors_books[0m
+  [4;35;1mSQL (0.001719)[0m   [0mSHOW KEYS FROM authors_books[0m
+  [4;36;1mSQL (0.002729)[0m   [0;1mSHOW FIELDS FROM books[0m
+  [4;35;1mSQL (0.000603)[0m   [0mSHOW KEYS FROM books[0m
+  [4;36;1mSQL (0.002230)[0m   [0;1mSHOW FIELDS FROM books_tags[0m
+  [4;35;1mSQL (0.000488)[0m   [0mSHOW KEYS FROM books_tags[0m
+  [4;36;1mSQL (0.002220)[0m   [0;1mSHOW FIELDS FROM cart_items[0m
+  [4;35;1mSQL (0.000618)[0m   [0mSHOW KEYS FROM cart_items[0m
+  [4;36;1mSQL (0.001801)[0m   [0;1mSHOW FIELDS FROM carts[0m
+  [4;35;1mSQL (0.000470)[0m   [0mSHOW KEYS FROM carts[0m
+  [4;36;1mSQL (0.002680)[0m   [0;1mSHOW FIELDS FROM forum_posts[0m
+  [4;35;1mSQL (0.000433)[0m   [0mSHOW KEYS FROM forum_posts[0m
+  [4;36;1mSQL (0.002574)[0m   [0;1mSHOW FIELDS FROM globalize_countries[0m
+  [4;35;1mSQL (0.002374)[0m   [0mSHOW KEYS FROM globalize_countries[0m
+  [4;36;1mSQL (0.002836)[0m   [0;1mSHOW FIELDS FROM globalize_languages[0m
+  [4;35;1mSQL (0.002017)[0m   [0mSHOW KEYS FROM globalize_languages[0m
+  [4;36;1mSQL (0.002567)[0m   [0;1mSHOW FIELDS FROM globalize_translations[0m
+  [4;35;1mSQL (0.045107)[0m   [0mSHOW KEYS FROM globalize_translations[0m
+  [4;36;1mSQL (0.002358)[0m   [0;1mSHOW FIELDS FROM order_items[0m
+  [4;35;1mSQL (0.000348)[0m   [0mSHOW KEYS FROM order_items[0m
+  [4;36;1mSQL (0.002581)[0m   [0;1mSHOW FIELDS FROM orders[0m
+  [4;35;1mSQL (0.000409)[0m   [0mSHOW KEYS FROM orders[0m
+  [4;36;1mSQL (0.001823)[0m   [0;1mSHOW FIELDS FROM publishers[0m
+  [4;35;1mSQL (0.001295)[0m   [0mSHOW KEYS FROM publishers[0m
+  [4;36;1mSQL (0.002001)[0m   [0;1mSHOW FIELDS FROM tags[0m
+  [4;35;1mSQL (0.001197)[0m   [0mSHOW KEYS FROM tags[0m
+  [4;36;1mSQL (0.002557)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mSQL (0.000359)[0m   [0mSHOW KEYS FROM users[0m

@@ -1,0 +1,5 @@
+|assertLocation|/forum||
+|clickAndWait|link=The Dice Man||
+|verifyTextPresent|The Dice Man||
+|verifyTextPresent|Luke Rhinehart||
+|assertText|link=Reply|Reply|

@@ -1,0 +1,90 @@
+pro_rails_ecommerce:
+  id: 1
+  title: Pro Rails E-Commerce
+  publisher_id: 1
+  isbn: 199-199-199-1
+  price: 20
+  published_at: <%= Time.now.to_s(:db) %>
+  created_at: <%= Time.now.to_s(:db) %>
+
+pro_rails_ecommerce_2:
+  id: 2
+  title: Pro Rails E-Commerce 2nd Edition
+  publisher_id: 1
+  isbn: 199-199-199-2
+  price: 20
+  published_at: <%= Time.now.to_s(:db) %>
+  created_at: <%= Time.now.to_s(:db) %>
+
+pro_rails_ecommerce_3:
+  id: 3
+  title: Pro Rails E-Commerce 2nd Edition
+  publisher_id: 2
+  isbn: 199-199-199-2
+  price: 20
+  published_at: <%= Time.now.to_s(:db) %>
+  created_at: <%= Time.now.to_s(:db) %>
+
+pro_rails_ecommerce_4:
+  id: 4
+  title: Pro Rails E-Commerce 2nd Edition
+  publisher_id: 2
+  isbn: 199-199-199-2
+  price: 20
+  published_at: <%= Time.now.to_s(:db) %>
+  created_at: <%= Time.now.to_s(:db) %>
+
+pro_rails_ecommerce_5:
+  id: 5
+  title: Pro Rails E-Commerce 2nd Edition
+  publisher_id: 2
+  isbn: 199-199-199-2
+  price: 20
+  published_at: <%= Time.now.to_s(:db) %>
+  created_at: <%= Time.now.to_s(:db) %>
+
+pro_rails_ecommerce_6:
+  id: 6
+  title: Pro Rails E-Commerce 2nd Edition
+  publisher_id: 2
+  isbn: 199-199-199-2
+  price: 20
+  published_at: <%= Time.now.to_s(:db) %>
+  created_at: <%= Time.now.to_s(:db) %>
+
+pro_rails_ecommerce_7:
+  id: 7
+  title: Pro Rails E-Commerce 2nd Edition
+  publisher_id: 2
+  isbn: 199-199-199-2
+  price: 20
+  published_at: <%= Time.now.to_s(:db) %>
+  created_at: <%= Time.now.to_s(:db) %>
+
+pro_rails_ecommerce_8:
+  id: 8
+  title: Ruby for Dummies
+  publisher_id: 2
+  isbn: 199-199-199-2
+  price: 20
+  published_at: <%= Time.now.to_s(:db) %>
+  created_at: <%= Time.now.to_s(:db) %>
+
+pro_rails_ecommerce_9:
+  id: 9
+  title: Pride and Prejudice
+  publisher_id: 2
+  isbn: 199-199-199-2
+  price: 20
+  published_at: <%= Time.now.to_s(:db) %>
+  created_at: <%= Time.now.to_s(:db) %>
+
+pro_rails_ecommerce_10:
+  id: 10
+  title: The Idiot
+  publisher_id: 2
+  isbn: 199-199-199-2
+  price: 20
+  published_at: <%= Time.now.to_s(:db) %>
+  created_at: <%= Time.now.to_s(:db) %>
+

@@ -1,0 +1,9 @@
+<dl>
+  <dt>First Name</dt>
+  <dd><%= @author.first_name %></dd>
+  <dt>Last Name</dt>
+  <dd><%= @author.last_name %></dd>
+</dl>
+
+<p><%= link_to 'Edit', :action => 'edit', :id => @author %> |
+<%= link_to 'Back', :action => 'index' %></p>

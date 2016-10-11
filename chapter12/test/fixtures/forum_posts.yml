@@ -1,0 +1,8 @@
+<% 40.times do |i| %>post_<%= i %>: 
+  id: <%= i %> 
+  name: Post <%= i %> name 
+  subject: Post <%= i %> subject 
+  body: Post <%= i %> body 
+  created_at: <%= Time.now.to_s(:db) %> 
+  updated_at: <%= Time.now.to_s(:db) %> 
+<% end %> 

@@ -1,0 +1,33 @@
+<% if flash[:cart_notice] %>
+  <%= render :partial => "cart/cart_notice" %>
+<% end %>
+  <h3>Your Shopping Cart</h3>
+  <ul>
+    <% for item in @cart.cart_items %>
+    <li id="cart_item_<%= item.book.id %>">
+      <%= render :partial => "cart/item", :object => item %>
+    </li>
+    <% end %>
+  </ul>
+  <p id="cart_total"><strong>Total: $<%= sprintf("%0.2f", @cart.total) %> </strong></p>
+  <% unless @cart.cart_items.empty? %>
+  <p id="clear_cart_link">
+    <small>
+      <%= clear_cart_link %>
+    </small>
+  </p>
+  <% end %>
+
+  <% if !request.xhr? and @book and @book.tags.size > 0 %> 
+  <div id="recommended"> 
+  <h2>Recommendations</h2> 
+  <h4>Books</h4> 
+  <% for book in @book.tagged_related %> 
+    <%= link_to book.title, :action => 'show', :id => book.id %><br/> 
+  <% end %> 
+  <h4>Tags</h4> 
+  <% for tag in Book.find_related_tags(@book.tags.collect(&:name), :separator => ',', :raw => true, :limit => 100) %> 
+    <%= link_to tag['name'], :controller => 'tag', :action => 'show', :id => tag['name'] %><br/> 
+  <% end %> 
+  </div> 
+  <% end %> 

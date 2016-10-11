@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title><%= @page_title || 'Emporium' %></title>
+
+  <%= javascript_include_tag :defaults %>
+  <%= stylesheet_link_tag "style" %>
+</head>
+<body>
+
+<div id="header">
+  <h1 id="logo">Emporium&trade;</h1>
+  <h2 id="slogan">Books on Rails</h2>
+  <p id="loginlogout"> 
+    <% if current_user %> 
+      Logged in as <%= current_user.login %> 
+      (<%= link_to "Logout", :controller => "/account", :action => "logout" %>) 
+    <% else %> 
+      <%= link_to "Login", :controller => "/account", :action => "login" %> 
+    <% end %> 
+  </p>
+</div>
+
+<div id="menu">
+  <ul>
+    <li><a href="/admin/author">Authors</a>&nbsp;|&nbsp;</li>
+    <li><a href="/admin/publisher">Publishers</a>&nbsp;|&nbsp;</li>
+    <li><a href="/admin/book">Books</a>&nbsp;|&nbsp;</li>
+    <li><a href="/tag/list">Tags</a>&nbsp;|&nbsp;</li> 
+    <li><a href="/">Catalog</a>&nbsp;|&nbsp;</li>
+    <li><a href="/about">About</a>&nbsp;</li>
+  </ul>
+</div>
+  
+<div id="content">
+  <%= "<h1>#{@page_title}</h1>" if @page_title %>
+  <% if flash[:notice] %>
+    <div id="notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <%= yield %>
+</div>
+
+<% if @cart %>
+<div id="shopping_cart">
+  <%= render :partial => "cart/cart" %>
+</div>
+<%= drop_receiving_element("shopping_cart", :url =>
+      { :controller => "cart", :action => "add" }) %>
+<% end %>
+
+<div id="footer">
+ &copy; 1995-2006 Emporium
+</div>
+  
+</body>
+</html>
+

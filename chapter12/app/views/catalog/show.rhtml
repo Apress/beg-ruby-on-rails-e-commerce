@@ -1,0 +1,28 @@
+<h2>by <%= @book.authors.map{|a| a.name}.join(", ") %></h2>
+<%= image_tag url_for_file_column(:book, :cover_image) unless @book.cover_image.blank? %>
+<dl>
+  <dt>Price</dt>
+  <dd><%= @book.price_localized -%></dd> 
+  <dt>Page count</dt>
+  <dd><%= @book.page_count.localize -%></dd>
+  <dt>Publisher</dt>
+  <dd><%= @book.publisher.name %></dd>
+  <dt>Blurb</dt>
+  <dd><%= @book.blurb %></dd>
+  <dt>Tags</dt> 
+  <dd><%= display_tags @book -%></dd> 
+</dl> 
+<% if @book.tags.size > 0 %> 
+<div id="recommended"> 
+<h2>Recommendations</h2> 
+<h4>Books</h4> 
+<% for book in @book.tagged_related %> 
+  <%= link_to book.title, :action => 'show', :id => book.id %><br/> 
+<% end %> 
+<h4>Tags</h4> 
+<% for tag in Book.find_related_tags(@book.tags.collect(&:name), :separator => ',', :raw => true, :limit => 100) %> 
+  <%= link_to tag['name'], :controller => 'tag', :action => 'show', :id => tag['name'] %><br/> 
+<% end %> 
+</div> 
+<% end %> 
+<p><%= link_to "Back to Catalog", :action => "index" %></p>

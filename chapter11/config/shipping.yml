@@ -1,0 +1,6 @@
+fedex_url: https://gatewaybeta.fedex.com/GatewayDC 
+fedex_account: <your FedEx account number> 
+fedex_meter: <your FedEx meter number> 
+ups_account: <your UPS account number> 
+ups_user: <your UPS username> 
+ups_password: <your UPS password>
